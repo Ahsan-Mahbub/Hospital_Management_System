@@ -1,0 +1,28 @@
+.mynotes_content {
+  .mynotes_card {
+    width: auto;
+    max-width: 48%;
+    border-radius: 9px;
+    padding: 1rem;
+    margin: 1rem 0;
+    h2{
+      font-size: 18px;
+      font-weight: 500;
+      color: $dark-text;
+    }
+    a{
+      color: $dark-light-text;
+      font-size: 13px;
+      &:hover{
+        color: $third-color;
+      }
+    }
+    p{
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 2px;
+      line-height: 1.4;
+      color: $dark-text;
+    }
+  }
+}

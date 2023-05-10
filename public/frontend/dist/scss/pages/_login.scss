@@ -1,0 +1,182 @@
+.login_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  @media screen and (min-width: 1200px) {
+    & {
+      height: auto;
+    }
+  }
+  a {
+    color: $dark-text;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+  label {
+    color: $dark-text;
+    font-weight: 500;
+    font-size: 0.85rem;
+  }
+
+}
+.login_form {
+  display: flex;
+  width: auto;
+  background: #fff;
+  margin: 15px;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0px 10px 25px 5px #0000000f;
+}
+.sign-in-section {
+  padding: 30px;
+}
+.sign-in-section h6 {
+  margin-top: 0px;
+  font-size: 0.75em;
+}
+.sign-in-section h1 {
+  text-align: center;
+  font-weight: 400;
+  position: relative;
+  display: block;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: $dark-text;
+}
+.sign-in-section h1:after {
+  position: absolute;
+  content: "";
+  height: 5px;
+  bottom: -15px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 40px;
+  background: linear-gradient(to right, #ae00ff, $secondary-color);
+  transition: 0.25s;
+}
+.sign-in-section h1:hover:after {
+  width: 100px;
+}
+.sign-in-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.sign-in-section ul > li {
+  display: inline-block;
+  padding: 10px;
+  font-size: 15px;
+  width: 44px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 1px #0000000f;
+  border: 1px solid #e2e2e2;
+}
+.sign-in-section p {
+  text-align: center;
+  font-size: 0.85em;
+}
+.login_form-field {
+  display: block;
+  width: 300px;
+  margin: 10px auto;
+}
+.login_form-field label {
+  display: block;
+  margin-bottom: 10px;
+}
+.login_form-field input {
+  width: -webkit-fill-available;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #e8e8e8;
+  font-size: 17px;
+  font-weight: 600;
+}
+.login_form-field input::placeholder {
+  color: #e8e8e8;
+}
+.login_form-field input:focus {
+  border: 1px solid #ae00ff;
+}
+.login_form-field input[type="checkbox"] {
+  display: inline-block;
+}
+.login_form-options {
+  display: block;
+  margin: auto;
+  width: 300px;
+}
+.checkbox-field {
+  display: inline-block;
+  float: left;
+}
+.login_form-options a {
+  float: right;
+  text-decoration: none;
+}
+.login_btn {
+  padding: 15px;
+  font-size: 1em;
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+  margin: 20px 0px;
+}
+.btn-signin {
+  cursor: pointer;
+  background: #7f00ff;
+  background: linear-gradient(to right, #0f7cff, $secondary-color);
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    background: linear-gradient(to right, #ae00ff, $secondary-color);
+
+  }
+}
+.login_links a:nth-child(1) {
+  float: left;
+}
+.login_links a:nth-child(2) {
+  float: right;
+}
+
+.RegOptions{
+  position: absolute;
+  background: green;
+  color: white;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 11px 12px;
+  top: 51px;
+  right: -3px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  a{
+    color: #fff !important;
+    margin-bottom: 10px !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    border-bottom: 1px solid #d3d3d38a;
+    padding-right: 11px;
+    &:hover{
+      font-size: 16px !important;
+      font-weight: 500 !important;
+    }
+  }
+}
+
+.regBtn:hover .RegOptions{
+  opacity: 1;
+  visibility: visible;
+}

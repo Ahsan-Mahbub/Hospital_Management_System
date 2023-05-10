@@ -1,0 +1,126 @@
+
+
+  .speciality_content-one {
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: column;
+    padding: 32px 32px 8px;
+    @media (min-width: 768px) {
+      & {
+        flex-direction: row;
+      }
+    }
+
+    .speciality_content-one-list {
+      align-items: center;
+      color: #6f757b;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding: 0 16px;
+      text-align: center;
+      width: 100%;
+      @media (min-width: 768px) {
+        & {
+          width: 25%;
+        }
+      }
+    }
+  }
+
+  .speciality_content-one-list--icon {
+    align-items: center;
+    background: rgba(59, 179, 189, .08);
+    border-radius: 50%;
+    display: flex;
+    flex-shrink: 0;
+    height: 48px;
+    justify-content: center;
+    margin-bottom: 8px;
+    width: 48px;
+  }
+
+  .speciality_content-one-list--title {
+    color: $dark-text;
+    font-size: 18px;
+    line-height: 1.42857143;
+    margin-bottom: 8px;
+  }
+
+  //  speciality_content-two
+  .speciality_content-iconhead {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+    position: relative;
+    width: 100%;
+
+    &:before {
+      background: #f2f2f2;
+      content: "";
+      height: 1px;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .speciality_content-headicon {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #f2f2f2;
+    border-radius: 50%;
+    display: flex;
+    height: 64px;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    width: 64px;
+    z-index: 2;
+  }
+
+  .speciality_content-two {
+    display: flex;
+    flex-flow: wrap;
+    padding: 32px 32px 8px;
+    flex-direction: column;
+    @media (min-width: 768px) {
+      & {
+        flex-direction: row;
+      }
+    }
+
+  }
+
+  .speciality_content-two-list {
+    list-style: none;
+    padding: 0 16px;
+    color: #6f757b;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    text-align: left;
+    margin-top: 24px;
+    width: 100%;
+    @media (min-width: 768px) {
+      & {
+        width: 50%;
+      }
+    }
+  }
+
+  .speciality_content-two-list-icon {
+    align-items: center;
+    background: rgba(59, 179, 189, .08);
+    border-radius: 50%;
+    display: flex;
+    flex-shrink: 0;
+    height: 48px;
+    justify-content: center;
+    margin-bottom: 8px;
+    width: 48px;
+    margin-right: 24px;
+  }

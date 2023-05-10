@@ -1,0 +1,361 @@
+
+.header {
+  padding-top: 12px;
+  padding-bottom: 10px;
+  z-index: 999;
+  position: relative;
+
+  .loginBtn {
+    border: 1px solid $third-color-dark !important;
+    border-radius: 3px;
+    padding: 3px 14px;
+    transition: all 0.3s;
+    &:hover {
+      background-color: $third-color-dark;
+      color: #fff !important;
+    }
+  }
+  &_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo_container {
+    padding: 0 2px;
+  }
+
+  .nav_container {
+    padding: 0 16px;
+
+    .lang-select {
+      color: $dark-text;
+      font-size: 14px;
+      font-weight: 400;
+      background: inherit;
+    }
+
+    nav {
+      display: flex;
+    }
+
+
+    & nav ul {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+
+      & a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex: auto;
+        height: 100%;
+        margin-left: 16px;
+        color: $dark-text;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        white-space: nowrap;
+        box-sizing: border-box;
+
+        &:hover {
+          color: $dark-text-hover;
+          transition: color 0.2s;
+        }
+      }
+
+
+    }
+  }
+
+  .userauth_container {
+    padding: 0 25px;
+
+    & a.userauth_container--login {
+      border: 2px solid $darkbold-text;
+      border-radius: 2px;
+      padding: 5px 11px;
+
+      span {
+        font-size: 14px;
+        font-weight: 400;
+        color: $dark-text;
+      }
+
+      &:hover {
+        border: 2px solid $dark-text-hover;
+        transition: border 0.2s;
+      }
+    }
+  }
+}
+
+.header_iconGroup__1tKIQ {
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.header_iconLinks__bENRn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_actionButton__1xXXN:first-child {
+  margin-left: 0;
+}
+
+.header_actionButton__1xXXN {
+  border: none;
+  background: none;
+  outline: 0;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: auto;
+  height: 100%;
+  margin-left: 16px;
+  color: #384047;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+header_requestsIcon__1Gs7l svg {
+  width: 18px;
+  margin-top: 2px;
+  margin-right: 0;
+  fill: $dark-text;
+}
+
+.header_link__3Jd0t {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: auto;
+  height: 100%;
+  margin-left: 16px;
+  color: #384047;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: transform 0.3s;
+  span {
+    color: #384047;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+// Mobile Navbar
+@import url(https://img.imgsmail.ru/e/1556105173/css/main-flat-2018.css);
+
+.nav__item.m-active {
+  background: #1378C0;
+}
+
+.nav__item[data-count]:after {
+  background-color: #FFA930;
+  border-radius: 15px;
+  color: #FFF;
+  content: attr(data-count);
+  display: block;
+  font-size: 12px;
+  font-style: normal;
+  height: 15px;
+  line-height: 16px;
+  min-width: 7px;
+  padding: 0 4px;
+  position: absolute;
+  right: 6px;
+  text-align: center;
+  top: 6px;
+}
+
+.aside {
+  //background: #333;
+  //color: #F0F0F0;
+  //font-size: 17px;
+  height: 100%;
+  left: -110%;
+  top: 56px;
+  padding-left: 10%;
+  position: absolute;
+  transition: left 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 100%;
+}
+
+.aside__header {
+  border-bottom: 1px solid #F0F0F0;
+  color: #F0F0F0;
+  background: #000;
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 10px 10px;
+  text-transform: uppercase;
+}
+
+.aside__item + .aside__item .aside__text {
+  border-top: 1px solid #262626;
+}
+
+.aside__link {
+  background: $secondary-color;
+  color: #000;
+  font-weight: 400;
+  display: block;
+  font-size: 17px;
+  margin: 0;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.aside__link:hover {
+  background: #222;
+  color: #fff;
+}
+
+.aside__text {
+  display: block;
+  line-height: 21px;
+  margin: 0 0 0 12px;
+  min-height: 21px;
+  padding: 13px 12px 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.aside__icon {
+  float: left;
+  margin: 0 12px 0 0;
+  height: 21px;
+  width: 21px;
+}
+
+.m-show-aside .aside {
+  left: -10%;
+}
+
+
+// Register select
+:root {
+  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+  --gray: #34495e;
+  --darkgray: #2c3e50;
+}
+
+.registerSelect{
+
+  select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #000;
+    font-weight: 400;
+    background-color: transparent;
+    background-image: none;
+    cursor: pointer;
+  }
+
+
+  a {
+    font-weight: bold;
+    color: var(--gray);
+    text-decoration: none;
+    padding: .25em;
+    border-radius: .25em;
+    background: white;
+  }
+
+}
+
+
+/* Custom Select wrapper */
+.registerSelect {
+  position: relative;
+  display: flex;
+  width: 10em;
+  height: auto;
+  overflow: hidden;
+  border: 1px solid $third-color;
+  border-radius: 3px;
+  margin-left: 6px;
+}
+/* Arrow */
+.registerSelect::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px;
+  background-color: $third-color;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.registerSelect:hover::after {
+  color: #fffffc;
+}
+
+
+
+.nav,
+.nav__sub {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 15px;
+  list-style-type: none;
+}
+
+.nav {
+  position: relative;
+  width: auto;
+  background-color: black;
+  overflow: hidden;
+  height: 20vh;
+}
+
+.nav__item + .nav__item {
+  margin-top: 15px;
+}
+
+.nav__link {
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav__sub {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease-in-out;
+  transform: translateX(100%);
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0%);
+  }
+}

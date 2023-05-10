@@ -1,0 +1,157 @@
+.cardDesign {
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgb(0 0 0 / 15%);
+  background: #fff;
+  border: 1px solid #edeff0;
+  padding: 26px 32px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+
+  @media (max-width: 768px) {
+    padding: 20px 16px;
+  }
+
+  .cardDesign_title {
+    color: $dark-text;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    position: relative;
+  }
+
+}
+
+.teacher_about {
+  .teacher_about_content {
+    p {
+      max-height: 150px;
+      overflow: hidden;
+      font-weight: 400;
+      line-height: 1.5;
+      font-size: 15px;
+      color: $dark-text;
+    }
+
+    a {
+      color: $secondary-color;
+      cursor: pointer;
+      display: inline-flex;
+      font-weight: 400;
+      margin-top: 8px;
+      white-space: nowrap;
+    }
+    .teacher_stats_content-list{
+
+    }
+  }
+}
+
+.teacher_stats_content-varsity{
+  article {
+    flex: 1 1 20%;
+  }
+  .teacher_stats_content-varsity-info{
+    flex: 1 1 80%;
+  }
+}
+
+
+.teacher_reviews_container {
+  height: 500px;
+  width: 400px;
+  margin: 5px auto;
+  text-align: center;
+  @media (max-width: 768px) {
+    height: auto;
+    width: auto;
+  }
+}
+
+.teacher_reviews_container_title {
+  width: 180px;
+  text-transform: capitalize;
+  margin-top: 25px;
+  margin-left: 110px;
+  margin-bottom: 45px;
+  border-bottom: 5px solid rgb(90, 152, 238) ;
+  padding-bottom: 10px;
+  letter-spacing: 3px;
+}
+
+.teacher_review {
+  width: 100%;
+  height: 385px;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px  0px rgb(189, 189, 190);
+}
+
+#teacher_review-person-img {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 15px;
+  margin-bottom: 12px;
+  z-index: 2;
+  box-shadow: 5px -5px rgb(90, 152, 238);
+}
+#teacher_review-author {
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  font-weight: 500;
+  color: $dark-text;
+
+}
+#teacher_review-job {
+  font-size: 13px;
+  color: rgb(90, 152, 238);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+#teacher_review-info {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  font-size: 15px;
+  color: gray;
+}
+.teacher_review-img-container{
+  img{
+    margin: 0 auto;
+  }
+}
+
+.teacher_reviews_btn-container {
+  width: 40px;
+  margin-top: 12px;
+  margin-bottom: 10px;
+  letter-spacing: 5px;
+  margin-left: 180px;
+  @media (max-width: 768px) {
+    margin: 8px auto;
+  }
+  .prev-btn {
+    background-color: white;
+    border-style: none;
+    color: rgb(90, 152, 238);
+    font-size: 18px;
+  }
+  .prev-btn:hover {
+    cursor: pointer;
+    color: rgb(30, 120, 247);
+  }
+  .next-btn {
+    background-color: white;
+    border-style: none;
+    color: rgb(90, 152, 238);
+    font-size: 18px;
+  }
+  .next-btn:hover {
+    cursor: pointer;
+    color: rgb(30, 120, 247);
+  }
+}

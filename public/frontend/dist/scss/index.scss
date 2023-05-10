@@ -1,0 +1,42 @@
+@charset "UTF-8";
+// Abstract
+@import './abstract/variables';
+@import './abstract/mixin';
+@import './abstract/global';
+
+// layouts
+@import './layouts/header';
+@import './layouts/footer';
+
+// Pages
+@import './pages/academicCentre';
+@import './pages/academyCenter';
+@import './pages/researchPaper';
+@import './pages/blog';
+@import './pages/subjects';
+@import './pages/forgetpass';
+@import './pages/find-teacher';
+@import './pages/teacher';
+@import './pages/checkout';
+@import './pages/login';
+@import './pages/profile';
+@import './pages/password-change';
+@import './pages/payment-history';
+@import './pages/payment-method';
+@import './pages/site-information';
+@import './pages/myclasses';
+@import './pages/mynotes';
+@import './pages/mylessons';
+@import './pages/messages';
+@import 'pages/pricing';
+@import 'pages/conditions';
+
+// Components
+@import './components/slider';
+@import './components/siteinfo';
+@import './components/whatis';
+@import './components/speciality';
+@import './components/whyus';
+@import './components/faq';
+@import './components/learning-section';
+@import 'components/subscription-banner';

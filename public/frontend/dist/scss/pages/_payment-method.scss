@@ -1,0 +1,156 @@
+
+
+.payment-method-container {
+  max-width: 620px;
+  margin: 150px auto 30px;
+  @media (max-width: 768px) {
+    margin: 100px auto 30px;
+  }
+  #year-select,
+  #month-select{
+    color: $dark-text;
+  }
+}
+
+.payment-method-card-image {
+  width: 425px;
+  position: absolute;
+  top: -125px;
+  left: 100px;
+  z-index: 1;
+  @media (max-width: 768px) {
+    left: 0;
+    top: -84px;
+    width: auto;
+  }
+}
+
+.payment-method-card-image-shadow {
+  position: absolute;
+  width: 410px;
+  height: 253px;
+  top: -113px;
+  left: 107px;
+  border-radius: 15px;
+  box-shadow: -2px 3px 14px 0px $dark-text;
+  z-index: 0;
+  @media (max-width: 768px) {
+    left: 0;
+    width: auto;
+  }
+}
+
+.payment-method-form {
+  border-radius: 15px;
+  background-color: #fff;
+  min-width: 100%;
+  padding-top: 165px;
+  position: relative;
+  box-shadow: 1px 1px 10px -1px  rgba(0, 0, 0, 0.35);
+  form {
+    padding: 10px 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @media (max-width: 768px) {
+        padding: 10px ;
+    }
+
+    .flex-column {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    .flex-row {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      input.card-number,
+      input.card-name,
+      input.card-cvv,
+      table {
+        width: 100%;
+      }
+
+      input {
+        padding: 10px;
+        height: 40px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline-color: #4183f5;
+      }
+
+      input:not(.card-cvv, .card-submit),
+      table {
+        margin-bottom: 20px;
+      }
+
+
+      label {
+        display: block;
+        font-size: 18px;
+        font-weight: 400;
+        padding-bottom: 4px;
+        color: $secondary-color;
+        @media (max-width: 768px) {
+          font-size: 14px;
+        }
+      }
+    }
+
+  }
+}
+
+
+
+
+
+
+.table-column select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-left: 15px;
+  width: 45%;
+  height: 40px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: url("https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/000000/external-arrow-arrows-those-icons-lineal-color-those-icons-1.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position-x: 125px;
+  background-position-y: center;
+  font-size: 18px;
+  outline-color: #4183f5;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.table-column:last-child {
+  width: 40%;
+}
+
+.card-submit {
+  width: 100%;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: $secondary-color;
+  transition: background-color 250ms ease-in-out;
+}
+
+.card-submit:hover {
+  background-color: #4183f5;
+}

@@ -1,0 +1,415 @@
+
+#ch_circle {
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation: rotate 3s infinite linear;
+  animation: rotate 3s infinite linear;
+  transform-box: fill-box;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.checkout_form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  border-radius: 10px;
+  display: flex;
+  background: #fff;
+}
+
+.checkout_form_left {
+  flex-basis: 40%;
+  text-align: center;
+}
+
+.checkout_form_right {
+  flex: 1;
+  padding: 16px 10px;
+  color: #064b8d;
+  @media (min-width: 768px) {
+    & {
+      padding: 16px 24px;
+    }
+  }
+}
+
+.checkout_form_right span {
+  display: block;
+}
+
+
+.form__right__title {
+  margin-bottom: 10px;
+}
+
+.form__right__info {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.form__right__check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.form__right__check input[type="radio"] {
+  display: none;
+}
+
+.form__right__check--creditCard {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #fcfdfc;
+  margin-right: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #dfe5ec;
+  position: relative;
+}
+
+.form__right__check--creditCard::after {
+  content: "";
+  border: 3px solid #dfe5ec;
+  height: 20px;
+  width: 20px;
+  display: block;
+  border-radius: 50%;
+}
+
+.form__right__check--creditCard__icon {
+  width: 46px;
+}
+
+.form__right__check--creditCard,
+.form__right__check--payPal {
+  padding: 10px 0 10px 0;
+  cursor: pointer;
+}
+
+.form__right__check--payPal {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #fcfdfc;
+  border: 1px solid #dfe5ec;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+}
+
+.form__right__check--payPal::after {
+  content: "";
+  border: 3px solid #dfe5ec;
+  height: 20px;
+  width: 20px;
+  display: block;
+  border-radius: 50%;
+}
+
+.form__right__check--payPal__icon {
+  width: 136px;
+}
+
+.form__right__form-control {
+  margin-top: 10px;
+}
+
+.form__right__form-control--name {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form__right__form-control--cardNumber {
+  height: 45px;
+  width: 100%;
+  background: #fffffc;
+  border: none;
+  font-size: 18px;
+  padding: 0 10px 0 10px;
+  border: 1px solid #dfe5ec;
+  border-radius: 2px;
+  color: #949393;
+}
+
+.form__right__form-control--cardNumber:focus {
+  outline: none;
+  border-color: blue;
+}
+
+.form__right__form-control--button {
+  width: 60%;
+  margin-top: 10px;
+  padding: 15px 10px;
+  border: none;
+  background: #064b8d;
+  color: #fff;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.form__right__form-control--button:hover {
+  background: #0c3a65;
+}
+
+#option1:checked ~ .form__right__check--creditCard {
+  border-color: blue;
+}
+
+#option1:checked ~ .form__right__check--creditCard::after {
+  border-color: green;
+  outline: 2px solid green;
+  outline-offset: -10px;
+  outline-style: dotted;
+}
+
+#option2:checked ~ .form__right__check--payPal {
+  border-color: blue;
+}
+
+#option2:checked ~ .form__right__check--payPal::after {
+  border-color: green;
+  outline-style: dotted;
+  outline: 2px solid green;
+  outline-offset: -10px;
+}
+
+.form__right__expireDate {
+  flex-basis: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.form__right__expireDate--month {
+  height: 45px;
+  background: #fffffc;
+  border: none;
+  font-size: 18px;
+  padding: 0 10px 0 10px;
+  border: 1px solid #dfe5ec;
+  border-radius: 2px;
+  color: #949393;
+  width: 48%;
+}
+
+.form__right__expireDate--month:focus {
+  outline: none;
+  border-color: blue;
+}
+
+.form__right__expireDate--year {
+  width: 48%;
+  height: 45px;
+  background: #fffffc;
+  border: none;
+  font-size: 18px;
+  padding: 0 10px 0 10px;
+  border: 1px solid #dfe5ec;
+  border-radius: 2px;
+  color: #949393;
+}
+
+.form__right__expireDate--year:focus {
+  outline: none;
+  border-color: blue;
+}
+
+.form__right__expireDate__left {
+  margin-left: 5px;
+  flex: 1;
+}
+
+.form__right__expireDate__left--cvc {
+  height: 45px;
+  width: 100%;
+  background: #fffffc;
+  border: none;
+  font-size: 18px;
+  padding: 0 10px 0 10px;
+  border: 1px solid #dfe5ec;
+  border-radius: 2px;
+  color: #949393;
+}
+
+.form__right__expireDate__left--cvc:focus {
+  outline: none;
+  border-color: blue;
+}
+
+.expireDateForm {
+  -ms-flex-preferred-size: 60%;
+  flex-basis: 60%;
+}
+
+/*# Top Product Item css */
+
+.checkout-details {
+  max-width: 800px;
+  min-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  //margin-top: -200px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.checkout-details__item {
+  display: flex;
+}
+
+.checkout-item__details {
+  padding: 10px;
+  @media (min-width: 768px) {
+    & {
+      padding: 30px;
+    }
+  }
+}
+
+
+.checkout-item__title {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.checkout-item__price {
+  font-size: 16px;
+  color: #bec3cb;
+}
+
+.checkout-item__description {
+  ul {
+    padding: 16px;
+    min-width: auto;
+    @media (min-width: 768px) {
+    & {
+      min-width: 400px;
+    }
+  }
+
+    li {
+      list-style-type: circle !important;
+      color: #3e3c3c;
+      font-weight: 400;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+// Image Card
+.profile_image_card {
+  background: none;
+  overflow: unset;
+  position: relative;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 160px;
+  margin-right: 32px;
+  min-width: 160px;
+  width: 160px;
+  z-index: 1;
+  padding: 21px;
+
+  &:before {
+    background: transparent url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEuMTk1IDE1LjkzNGMuNzA2IDEuNjY1IDEuOTQ2IDIuOTI2IDMuODU2IDMuMjggMS43MDguMzE2IDMuNDc1LS4zMzMgNC44NzgtMS4zNDguNjU3LS40NzYgMS4yNjktMS4wNSAxLjYxOC0xLjc4MS4zMTMtLjY1Ni4zOTYtMS4zOTUuNTgtMi4wOThhNy40MDUgNy40MDUgMCAwIDEgMi4yMjQtMy42MzFjLjg1Ni0uNzYzIDEuODgtMS4zMTYgMi43NjUtMi4wNDUuODg1LS43MjkgMS42Ni0xLjcxMyAxLjczMy0yLjg1OC4wNTItLjgyMy0uMjctMS42MzgtLjc0OC0yLjMxMS0xLjE1Ni0xLjYyNS0zLjE4Mi0yLjQ4LTUuMTcyLTIuNTg0LTEuOTktLjEwNC0zLjk1Ny40NjItNS43OTkgMS4yMTMtMS43NzguNzI1LTMuNTM5IDEuNjc1LTQuNzA0IDMuMTk4Qy41NDcgNy40MjYtLjI1IDEyLjUyNiAxLjE5NSAxNS45MzRaIiBmaWxsPSIjNTJENURGIi8+PC9zdmc+) 0 0 no-repeat;
+    content: "";
+    height: 20px;
+    left: 8px;
+    position: absolute;
+    top: 22px;
+    width: 20px;
+  }
+}
+.profile_image_container {
+  background-color: #fff;
+  clip-path: url(#clipPath);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+.profile_image_clippath {
+  position: absolute;
+}
+.profile_image_container picture {
+  height: 100%;
+  width: 100%;
+}
+.profile_image_container img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  object-fit: cover;
+  position: relative;
+  transition-duration: .3s;
+  transition-property: width,height,opacity;
+}
+.profile_image_btm {
+  bottom: 10px;
+  background-color: #aeb5bc;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgb(0 0 0 / 20%);
+  cursor: pointer;
+  height: 12px;
+  left: 22%;
+  margin: 8px 12px;
+  position: absolute;
+  top: 90%;
+  width: 12px;
+  z-index: 1;
+}

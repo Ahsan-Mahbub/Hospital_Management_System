@@ -1,0 +1,35 @@
+.profile{
+  .custom-image {
+    width: 100%;
+    border-radius: 8%;
+  }
+
+  .side_profile_img:hover > button {
+    display: block;
+  }
+  .profile_pic_chnage_btn {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .pofile-menu-list {
+    box-shadow: none !important;
+    display: inline-block;
+    li{
+      border-bottom: 1px solid #efefef;
+      padding: 5px 15px;
+      a{
+        color: rgba(31, 41, 55, var(--tw-text-opacity));
+        font-size: 14px;
+        font-weight: 400;
+        transition: 0.2s ease-in-out;
+        &:hover{
+          color: $secondary-color;
+        }
+      }
+    }
+    .profile_side_list_active{
+      background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+      border-left: 4px solid $secondary-color !important;
+    }
+  }
+}

@@ -1,0 +1,181 @@
+
+@keyframes down-btn {
+  0% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0px;
+  }
+
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opaicty: 1;
+  }
+}
+
+@-webkit-keyframes down-btn {
+  0% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0px;
+  }
+
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opaicty: 1;
+  }
+}
+
+@-moz-keyframes down-btn {
+  0% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0px;
+  }
+
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opaicty: 1;
+  }
+}
+
+@-o-keyframes down-btn {
+  0% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0px;
+  }
+
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opaicty: 1;
+  }
+}
+
+
+.category-name {
+  width: -webkit-fill-available;
+  text-align: center;
+  font-size: 40px;
+}
+
+.card-category-2 ul,
+.card-category-3 ul,
+.card-category-4 ul,
+.card-category-5 ul .card-category-6 ul {
+  padding: 0;
+}
+
+.card-category-2 ul li,
+.card-category-3 ul li,
+.card-category-4 ul li,
+.card-category-5 ul li,
+.card-category-6 ul li {
+  list-style-type: none;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.card-category-2 ul li,
+.card-category-3 ul li {
+  //margin: 10px 5px;
+}
+
+
+
+.card-category-1,
+.card-category-2,
+.card-category-3,
+.card-category-4,
+.card-category-5,
+.card-category-6 {
+  font-family: sans-serif;
+  margin-bottom: 45px;
+  text-align: center;
+}
+.card-category-1 div,
+.card-category-2 div {
+  display: inline-block;
+}
+
+.card-category-1 > div,
+.card-category-2 > div:not(:last-child) {
+  margin: 10px 5px;
+  text-align: left;
+}
+/* Overlay Image Card */
+
+.ioverlay-card {
+  position: relative;
+  text-align: left;
+}
+
+.ioverlay-card img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+  border-radius: 4px;
+}
+
+.ioverlay-card .card-content {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+}
+
+.ioverlay-card .card-content .card-title {
+  font-size: 25px;
+}
+
+.io-card-1 {
+  color: #fff;
+}
+
+.io-card-1 .card-content .card-text {
+  width: 95%;
+  line-height: 1.5;
+  padding-bottom: 10px;
+}
+
+.io-card-1 .card-link {
+  position: absolute;
+  top: 140px;
+  left: 20px;
+}
+
+.io-card-1 .card-link a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 4px;
+  background: #3f51b5;
+
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.io-card-1 .card-link a:hover {
+  color: #3f51b5;
+  background: #fff;
+  border-color: #fff;
+}
+
+
+// =================================================================

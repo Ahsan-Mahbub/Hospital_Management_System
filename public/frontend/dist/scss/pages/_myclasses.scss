@@ -1,0 +1,55 @@
+.myclass_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin-bottom: 1.5rem;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #d8dbe0;
+  @media (max-width: 768px) {
+   margin: 10px;
+  }
+}
+.enrolled-course{
+  width: 49%;
+  @media (max-width: 768px) {
+   width: 100%;
+  }
+}
+.enrolled-course .shadow {
+  box-shadow: 0 4px 13px rgba(0,0,0,.07)!important;
+
+}
+.myclass_card-text {
+  h5 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: capitalize;
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+}
+.enrolled-course .myclass_card {
+  height: 100%;
+  border-radius: 10px;
+  color: initial;
+  position: relative;
+  background: #fff;
+}
+.myclass_card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem  1.25rem 1px;
+}
+.enrolled-course .myclass_card .myclass_card-body {
+  min-height: 166px;
+}
+
+.enrolled-course .myclass_card-img-top {
+  border-radius: 8px;
+}
