@@ -9,7 +9,7 @@
       <span class="smini-visible fw-bold tracking-wide fs-lg">
         c<span class="text-primary">b</span>
       </span>
-      <a class="link-fx fw-bold tracking-wide mx-auto" href="/admin">
+      <a class="link-fx fw-bold tracking-wide mx-auto" href="/">
         <span class="smini-hidden">
           <span class="fs-4 text-dual">H.M.</span><span class="fs-4 text-primary">System</span>
         </span>
@@ -42,7 +42,7 @@
 
       <!-- Visible only in normal mode -->
       <div class="smini-hidden text-center mx-auto">
-        <a class="img-link" href="be_pages_generic_profile.html">
+        <a class="img-link" href="/">
           <img class="img-avatar" src="/backend/assets/media/avatars/avatar15.jpg" alt="">
         </a>
         <ul class="list-inline mt-3 mb-0">
@@ -65,28 +65,39 @@
     <div class="content-side content-side-full">
       <ul class="nav-main">
         <li class="nav-main-item">
-          <a class="nav-main-link" href="/admin">
+          <a class="nav-main-link" href="/">
             <i class="nav-main-link-icon fa fa-house-user"></i>
             <span class="nav-main-link-name">Dashboard</span>
           </a>
         </li>
-        <li class="nav-main-heading">Home Module</li>
+        <li class="nav-main-item">
+          <a class="nav-main-link" href="{{route('department.index')}}">
+            <i class="nav-main-link-icon fa fa-sitemap"></i>
+            <span class="nav-main-link-name">Department</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a class="nav-main-link" href="{{route('doctor.index')}}">
+            <i class="nav-main-link-icon fa fa-user-md"></i>
+            <span class="nav-main-link-name">Doctor</span>
+          </a>
+        </li>
 
         <li class="nav-main-item">
           <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-            <i class="nav-main-link-icon fa fa-book"></i>
-            <span class="nav-main-link-name">Multiple Module</span>
+            <i class="nav-main-link-icon fa fa-wheelchair"></i>
+            <span class="nav-main-link-name">Patient</span>
           </a>
           <ul class="nav-main-submenu">
             <li class="nav-main-item">
-              <a class="nav-main-link" href="#">
-                <span class="nav-main-link-name">Module 1</span>
+              <a class="nav-main-link" href="{{route('patient.index')}}">
+                <span class="nav-main-link-name">Patient</span>
               </a>
             </li>
 
             <li class="nav-main-item">
               <a class="nav-main-link" href="#">
-                <span class="nav-main-link-name">Module 2</span>
+                <span class="nav-main-link-name">Patient Documents</span>
               </a>
             </li>
           </ul>
