@@ -96,7 +96,8 @@ class ScheduleController extends Controller
      */
     public function destroy(Schedule $schedule)
     {
-        //
+        $delete = $schedule->delete();
+        return back()->with('message','Doctor Successfully Deleted');
     }
 
     public function status($id)

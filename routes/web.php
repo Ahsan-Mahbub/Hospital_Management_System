@@ -7,6 +7,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PatientDocumentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,11 +18,17 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+// Auth::routes();
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+]);
 Route::get('/', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     //Profile Update Route
     Route::post('/profile-store', [HomeController::class, 'store'])->name('profile.store');
+    Route::get('change-mode', [HomeController::class, 'changeMode'])->name('mode-change');
 
     Route::group(['prefix' => 'department'], function () {
         Route::get('/list', [DepartmentController::class, 'index'])->name('department.index');
@@ -56,5 +63,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     
     Route::group(['prefix' => 'schedule'], function() {
         Route::get('/status/{id}', [ScheduleController::class, 'status'])->name('schedule.status');
+    });
+    Route::group(['prefix' => 'patient-documents'], function () {
+        Route::get('/list', [PatientDocumentsController::class, 'index'])->name('documents.index');
+        Route::get('/show/{id}', [PatientDocumentsController::class, 'show'])->name('documents.show');
+        Route::post('store', [PatientDocumentsController::class, 'store'])->name('documents.store');
+        Route::delete('destroy/{id}', [PatientDocumentsController::class, 'destroy'])->name('documents.destroy');
     });
 });

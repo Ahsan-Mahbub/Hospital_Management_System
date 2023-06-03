@@ -41,14 +41,11 @@
 		            			<span class="badge bg-danger">Inactive</span>
 		            		@endif
 			            </td>
-			            <td class="text-center">
+			            <td class="text-center" width="15%">
 			            	<div class="btn-group">
 				            	<form action="{{route('schedule.destroy',$schedule->id)}}" method="post" accept-charset="utf-8">
 	                            	<a href="{{route('schedule.status',$schedule->id)}}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled">
 		                                <i class="fa fa-refresh {{$schedule->status == 1 ? 'text-success' :'text-danger'}}"></i>
-		                            </a>
-		                            <a href="{{route('schedule.show', $schedule->id)}}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled">
-		                                <i class="fa fa-eye"></i>
 		                            </a>
 			                		<a href="{{route('schedule.edit', $schedule->id)}}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled">
 		                                <i class="fa fa-edit"></i>

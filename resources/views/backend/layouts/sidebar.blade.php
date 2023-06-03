@@ -51,7 +51,7 @@
           </li>
           <li class="list-inline-item">
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <a class="link-fx text-dual" data-toggle="layout" data-action="dark_mode_toggle" href="javascript:void(0)">
+            <a class="link-fx text-dual" href="{{route('mode-change')}}">
               <i class="fa fa-burn"></i>
             </a>
           </li>
@@ -96,7 +96,7 @@
             </li>
 
             <li class="nav-main-item">
-              <a class="nav-main-link" href="#">
+              <a class="nav-main-link" href="{{route('documents.index')}}">
                 <span class="nav-main-link-name">Patient Documents</span>
               </a>
             </li>
