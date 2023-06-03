@@ -17,6 +17,23 @@
     <link rel="stylesheet" id="css-main" href="/backend/assets/css/codebase.min.css">
     <link rel="stylesheet" href="/backend/assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="/toastr.min.css">
+    <link rel="stylesheet" href="/backend/assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="/backend/assets/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" href="/backend/assets/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css">
+    <style type="text/css">
+      div.dataTables_wrapper div.dataTables_filter input {
+        margin-left: 0.5em;
+        display: inline-block;
+        width: 100%;
+        margin-top: 5px;
+      }
+      .tox-notifications-container{
+        display: none!important;
+      }
+      .tox-statusbar__branding{
+        display: none!important;
+      }
+    </style>
 
   </head>
   <body>

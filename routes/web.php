@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PatientDocumentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,12 @@ use App\Http\Controllers\PatientController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+// Auth::routes();
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+]);
 Route::get('/', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     //Profile Update Route
@@ -48,5 +54,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         Route::get('edit/{id}', [PatientController::class, 'edit'])->name('patient.edit');
         Route::post('update/{id}', [PatientController::class, 'update'])->name('patient.update');
         Route::delete('destroy/{id}', [PatientController::class, 'destroy'])->name('patient.destroy');
+    });
+    Route::group(['prefix' => 'patient-documents'], function () {
+        Route::get('/list', [PatientDocumentsController::class, 'index'])->name('documents.index');
+        Route::get('/show/{id}', [PatientDocumentsController::class, 'show'])->name('documents.show');
+        Route::post('store', [PatientDocumentsController::class, 'store'])->name('documents.store');
+        Route::delete('destroy/{id}', [PatientDocumentsController::class, 'destroy'])->name('documents.destroy');
     });
 });

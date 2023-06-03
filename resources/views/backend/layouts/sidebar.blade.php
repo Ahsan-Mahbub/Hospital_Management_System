@@ -96,7 +96,7 @@
             </li>
 
             <li class="nav-main-item">
-              <a class="nav-main-link" href="#">
+              <a class="nav-main-link" href="{{route('documents.index')}}">
                 <span class="nav-main-link-name">Patient Documents</span>
               </a>
             </li>
