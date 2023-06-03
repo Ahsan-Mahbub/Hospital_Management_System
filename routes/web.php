@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ScheduleController;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PatientDocumentsController;
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         Route::get('edit/{id}', [PatientController::class, 'edit'])->name('patient.edit');
         Route::post('update/{id}', [PatientController::class, 'update'])->name('patient.update');
         Route::delete('destroy/{id}', [PatientController::class, 'destroy'])->name('patient.destroy');
+    }); 
+
+    Route::resource('/schedule', ScheduleController::class);
+    
+    Route::group(['prefix' => 'schedule'], function() {
+        Route::get('/status/{id}', [ScheduleController::class, 'status'])->name('schedule.status');
     });
     Route::group(['prefix' => 'patient-documents'], function () {
         Route::get('/list', [PatientDocumentsController::class, 'index'])->name('documents.index');
