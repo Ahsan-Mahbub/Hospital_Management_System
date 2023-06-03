@@ -1,0 +1,17 @@
+#main_url
+url: http://darisonline.com
+
+#admin
+url: http://darisonline.com/admin
+email: a@gmail.com
+password: 11111111
+
+#teacher
+url: http://darisonline.com/teacher-login
+email: a@gmail.com
+password: 11111111
+
+#teacher
+url: http://darisonline.com/student-login
+email: a@gmail.com
+password: 11111111

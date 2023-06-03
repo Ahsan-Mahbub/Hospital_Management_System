@@ -60,7 +60,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     }); 
 
     Route::resource('/schedule', ScheduleController::class);
-    
     Route::group(['prefix' => 'schedule'], function() {
         Route::get('/status/{id}', [ScheduleController::class, 'status'])->name('schedule.status');
     });

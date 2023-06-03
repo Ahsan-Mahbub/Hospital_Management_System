@@ -116,7 +116,7 @@
             </li>
 
             <li class="nav-main-item">
-              <a class="nav-main-link" href="#">
+              <a class="nav-main-link" href="{{route('schedule.index')}}">
                 <span class="nav-main-link-name">Schedule List</span>
               </a>
             </li>

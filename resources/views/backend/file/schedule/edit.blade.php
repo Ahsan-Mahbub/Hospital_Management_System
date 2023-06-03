@@ -5,7 +5,7 @@
 		<div class="block-header block-header-default">
 		  <h3 class="block-title">Update Schedule</h3>
 		  <div class="block-options">
-		    <a href="{{route('schedule.index')}}" class="btn btn-alt-primary"><i class="fa fa-list mr-5"></i> schedule List</a>
+		    <a href="{{route('schedule.index')}}" class="btn btn-alt-primary"><i class="fa fa-list mr-5"></i> Schedule List</a>
 		  </div>
 		</div>
 		<div class="block-content">
@@ -14,7 +14,7 @@
             	@csrf
 				@method('PUT')
             	<div class="row">
-            		<div class="col-md-8">
+            		<div class="col-md-12">
 						<div class="row">
 							<div class="form-group col-md-6 pb-3">
 								<label class="col-12 pb-2">Doctor Name <span class="text-danger">*</span></label>
