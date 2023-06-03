@@ -26,6 +26,7 @@ Route::get('/', [HomeController::class, 'index'])->name('dashboard')->middleware
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     //Profile Update Route
     Route::post('/profile-store', [HomeController::class, 'store'])->name('profile.store');
+    Route::get('change-mode', [HomeController::class, 'changeMode'])->name('mode-change');
 
     Route::group(['prefix' => 'department'], function () {
         Route::get('/list', [DepartmentController::class, 'index'])->name('department.index');

@@ -38,7 +38,8 @@
   </head>
   <body>
     <!-- Page Container -->
-    <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
+    <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed <?php  if(Auth::user()->darkmode == 1) { ?> side-trans-enabled sidebar-dark page-header-dark dark-mode <?php } ?>">
+
       @include('backend.layouts.sideoverlay')
       @include('backend.layouts.sidebar')
       @include('backend.layouts.header')

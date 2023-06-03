@@ -48,4 +48,18 @@ class HomeController extends Controller
         User::where('id', Auth::user()->id)->update($data);
         return back()->with('message','Profile Update Successfully');
     }
+
+    public function changeMode()
+    {
+        $id = Auth::user()->id;
+        $mode = User::findOrFail($id);
+        if ($mode->darkmode == 0) {
+            $mode->darkmode = 1;
+        } else {
+            $mode->darkmode = 0;
+        }
+        $mode->save();
+
+        return redirect()->back();
+    }
 }
