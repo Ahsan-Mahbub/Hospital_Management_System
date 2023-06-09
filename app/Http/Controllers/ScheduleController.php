@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
+use Carbon\Carbon;
 
 class ScheduleController extends Controller
 {
@@ -40,6 +41,16 @@ class ScheduleController extends Controller
     {   
         $schedule = new Schedule();
         $scheduleSave = $schedule->fill($request->all())->save();
+
+        // $start = Carbon::parse($request->input('start_time'));
+        // $end = Carbon::parse($request->input('end_time'));
+        
+        // $intervals = [];
+        // while ($start < $end) {
+        //     $intervals[] = $start->format('H:i');
+        //     $start->addMinutes(30);
+        // }
+        // dd($intervals);
         
         if($scheduleSave){
             return redirect()->route('schedule.index')->with('message','Schedule Added Successfully');

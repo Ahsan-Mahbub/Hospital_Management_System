@@ -2,33 +2,6 @@
 <nav id="sidebar">
 <!-- Sidebar Content -->
 <div class="sidebar-content">
-  <!-- Side Header -->
-  <div class="content-header justify-content-lg-center">
-    <!-- Logo -->
-    <div>
-      <span class="smini-visible fw-bold tracking-wide fs-lg">
-        c<span class="text-primary">b</span>
-      </span>
-      <a class="link-fx fw-bold tracking-wide mx-auto" href="/">
-        <span class="smini-hidden">
-          <span class="fs-4 text-dual">H.M.</span><span class="fs-4 text-primary">System</span>
-        </span>
-      </a>
-    </div>
-    <!-- END Logo -->
-
-    <!-- Options -->
-    <div>
-      <!-- Close Sidebar, Visible only on mobile screens -->
-      <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-      <button type="button" class="btn btn-sm btn-alt-danger d-lg-none" data-toggle="layout" data-action="sidebar_close">
-        <i class="fa fa-fw fa-times"></i>
-      </button>
-      <!-- END Close Sidebar -->
-    </div>
-    <!-- END Options -->
-  </div>
-  <!-- END Side Header -->
 
   <!-- Sidebar Scrolling -->
   <div class="js-sidebar-scroll">
@@ -36,14 +9,14 @@
     <div class="content-side content-side-user px-0 py-0">
       <!-- Visible only in mini mode -->
       <div class="smini-visible-block animated fadeIn px-3">
-        <img class="img-avatar img-avatar32" src="/backend/assets/media/avatars/avatar15.jpg" alt="">
+        <img class="img-avatar img-avatar32" src="/fav.svg" alt="">
       </div>
       <!-- END Visible only in mini mode -->
 
       <!-- Visible only in normal mode -->
       <div class="smini-hidden text-center mx-auto">
         <a class="img-link" href="/">
-          <img class="img-avatar" src="/backend/assets/media/avatars/avatar15.jpg" alt="">
+          <img class="img-avatar" src="/fav.svg" alt="">
         </a>
         <ul class="list-inline mt-3 mb-0">
           <li class="list-inline-item">
@@ -118,6 +91,140 @@
             <li class="nav-main-item">
               <a class="nav-main-link" href="{{route('schedule.index')}}">
                 <span class="nav-main-link-name">Schedule List</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-main-item">
+          <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+            <i class="nav-main-link-icon fa fa fa-pencil-alt"></i>
+            <span class="nav-main-link-name">Appointment</span>
+          </a>
+          <ul class="nav-main-submenu">
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Add Appointment</span>
+              </a>
+            </li>
+
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Appointment List</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-main-item">
+          <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+            <i class="nav-main-link-icon fa fa-book"></i>
+            <span class="nav-main-link-name">Prescription</span>
+          </a>
+          <ul class="nav-main-submenu">
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Add Patient Case Study</span>
+              </a>
+            </li>
+
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Patient Case Study List</span>
+              </a>
+            </li>
+
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Prescription List</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-main-item">
+          <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+            <i class="nav-main-link-icon fa fa-usd"></i>
+            <span class="nav-main-link-name">Account Manager</span>
+          </a>
+          <ul class="nav-main-submenu">
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Add Account</span>
+              </a>
+            </li>
+
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Account List</span>
+              </a>
+            </li>
+
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Add Invoice</span>
+              </a>
+            </li>
+             <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Invoice List</span>
+              </a>
+            </li>
+             <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Add Payment</span>
+              </a>
+            </li>
+             <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Payment List</span>
+              </a>
+            </li>
+             <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Report</span>
+              </a>
+            </li>
+             <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Debit Report</span>
+              </a>
+            </li>
+             <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Credit Report</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-main-item">
+          <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+            <i class="nav-main-link-icon fa fa-shield"></i>
+            <span class="nav-main-link-name">Insurance</span>
+          </a>
+          <ul class="nav-main-submenu">
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Add Insurance</span>
+              </a>
+            </li>
+
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Insurance List</span>
+              </a>
+            </li>
+
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Add Limit Approval</span>
+              </a>
+            </li>
+
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="#">
+                <span class="nav-main-link-name">Limit Approval List</span>
               </a>
             </li>
           </ul>

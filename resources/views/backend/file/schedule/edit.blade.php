@@ -19,8 +19,8 @@
 							<div class="form-group col-md-6 pb-3">
 								<label class="col-12 pb-2">Doctor Name <span class="text-danger">*</span></label>
 								<div class="col-lg-12">
-									<select class="form-control" name="doctor_id" required>
-										{{-- <option value="" selected disabled>--select doctor--</option> --}}
+									<select class="form-select" name="doctor_id" required>
+										<option value="">Select One</option>
 										@foreach ($doctors as $doctor)
 											<option value="{{ $doctor->id }}" {{ $schedule->doctor_id == $doctor->id ? 'selected' : '' }}>{{ $doctor->doctor_name }}</option>
 										@endforeach
@@ -28,36 +28,39 @@
 								</div>
 							</div>
 							<div class="form-group col-md-6 pb-3">
-								<label class="col-12 pb-2">Available Days<span class="text-danger">*</span></label>
+								<label class="col-12 pb-2">Available Days <span class="text-danger">*</span></label>
 								<div class="col-lg-12">
-									<select class="form-control" name="available_day" required>
+									<select class="form-select" name="available_day" required>
+										<option value="">Select One</option>
 										@foreach (getAvailableDays() as $day)
 											<option value="{{ $day }}" {{ $day == $schedule->available_day ? 'selected' : '' }}>{{ $day }}</option>
 										@endforeach 
 									</select>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-md-12 pb-3">
-								<label class="col-12 pb-2">Available Times <span class="text-danger">*</span></label>
-								<div class="row">
-									<div class="col-lg-6">
-										<input type='time' class="form-control" name="start_time" value="{{ $schedule->start_time }}" required>
-									</div>
-									<div class="col-lg-6">
-										<input type='time' class="form-control" name="end_time" value="{{ $schedule->end_time }}" required>
-									</div>	
-								</div>	
-							</div>
-							<div class="form-group col-md-6 pb-3">
-								<label class="col-12 pb-2">Per Patient Time <span class="text-danger">*</span></label>
+
+							<div class="form-group col-md-4 pb-3">
+								<label class="col-12 pb-2">Start Time <span class="text-danger">*</span></label>
 								<div class="col-lg-12">
-									<input type="time" class="form-control" name="per_patient_time" value="{{ $schedule->per_patient_time }}" required>
+									<input type="time" class="form-control" name="start_time" value="{{ $schedule->start_time }}" required>
 								</div>
 							</div>
+
+							<div class="form-group col-md-4 pb-3">
+								<label class="col-12 pb-2">End Time <span class="text-danger">*</span></label>
+								<div class="col-lg-12">
+									<input type='time' class="form-control" name="end_time" value="{{ $schedule->end_time }}" required>
+								</div>
+							</div>
+
+							<div class="form-group col-md-4 pb-3">
+								<label class="col-12 pb-2">Per Patient Time <small>(in Minute) </small><span class="text-danger">*</span></label>
+								<div class="col-lg-12">
+									<input type="number" class="form-control" name="per_patient_time" value="{{ $schedule->per_patient_time }}" required placeholder="Per Patient Time">
+								</div>
+							</div>
+
 						</div>
-						
 					</div>
             	</div>
                 <div class="form-group text-left mt-4 mb-4">
@@ -67,19 +70,4 @@
 		</div>
 	</div>
 </div>
-@endsection
-
-@section('script')
-<script type="text/javascript">
-	function readURL(input) {
-	    if (input.files && input.files[0]) {
-	        var reader = new FileReader();
-	        reader.onload = function (e) {
-	            $('#blah')
-	            .attr('src', e.target.result);
-	        };
-	        reader.readAsDataURL(input.files[0]);
-	    }
-	}
-</script>
 @endsection

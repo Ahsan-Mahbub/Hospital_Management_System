@@ -50,7 +50,7 @@
         <div class="mb-3">
           <label class="form-label" for="side-overlay-profile-email">Email</label>
           <div class="input-group">
-            <input type="email" class="form-control" id="side-overlay-profile-email" name="email" placeholder="Your email.." value="{{Auth::user()->email}}">
+            <input type="email" class="form-control" id="side-overlay-profile-email" name="email" disabled placeholder="Your email.." value="{{Auth::user()->email}}">
             <span class="input-group-text">
               <i class="fa fa-envelope"></i>
             </span>

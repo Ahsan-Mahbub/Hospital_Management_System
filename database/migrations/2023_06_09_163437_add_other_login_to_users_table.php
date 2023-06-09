@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('darkmode')->default(0);
+            $table->string('role')->default('admin');
+            $table->string('user_id')->nullable();
         });
     }
 
@@ -26,7 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('darkmode')->default(0);
+            //
         });
     }
 };

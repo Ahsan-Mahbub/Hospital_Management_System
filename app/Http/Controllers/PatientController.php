@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Patient;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Hash;
 use Str;
@@ -38,21 +39,29 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        $patient = new Patient();
-        $requested_data = $request->all();
-        $patient->password = Hash::make($request->password);
-        if ($request->hasFile('image')) {
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $name = 'image' . Str::random(5) . '.' . $extension;
-            $path = "backend/assets/images/patient/";
-            $request->file('image')->move($path, $name);
-            $requested_data['image'] = $path . $name;
-        }
-        $save = $patient->fill($requested_data)->save();
-        if($save){
+        try {
+            $patient = new Patient();
+            $requested_data = $request->all();
+            $patient->password = Hash::make($request->password);
+            if ($request->hasFile('image')) {
+                $extension = $request->file('image')->getClientOriginalExtension();
+                $name = 'image' . Str::random(5) . '.' . $extension;
+                $path = "backend/assets/images/patient/";
+                $request->file('image')->move($path, $name);
+                $requested_data['image'] = $path . $name;
+            }
+            $save = $patient->fill($requested_data)->save();
+            $patient_data = [
+                'name'    => $request->patient_name,
+                'email'   => $request->email,
+                'password'=> Hash::make($request->password),
+                'role'    => 'patient',
+                'user_id' => $patient->id
+            ];
+            User::insert($patient_data);
             return redirect()->route('patient.index')->with('message','Patient Added Successfully');
-        }else{
-            return back()->with('error','Patient Added Failed!!');;
+        } catch (Throwable $e) {
+            return back()->with('error', $e);
         }
     }
 
@@ -101,26 +110,35 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = Patient::findOrFail($id);
-        if($request->password){
-            $update->password = Hash::make($request->password);
-        }
-        $formData = $request->all();
-        if ($request->hasFile('image')) {
-            if (File::exists($update->image)) {
-                File::delete($update->image);
+        try{
+            $update = Patient::findOrFail($id);
+            if($request->password){
+                $update->password = Hash::make($request->password);
             }
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $name = 'image' . Str::random(5) . '.' . $extension;
-            $path = "backend/assets/images/patient/";
-            $request->file('image')->move($path, $name);
-            $formData['image'] = $path . $name;
-        }
-        $updated = $update->fill($formData)->save();
-        if($updated){
+            $formData = $request->all();
+            if ($request->hasFile('image')) {
+                if (File::exists($update->image)) {
+                    File::delete($update->image);
+                }
+                $extension = $request->file('image')->getClientOriginalExtension();
+                $name = 'image' . Str::random(5) . '.' . $extension;
+                $path = "backend/assets/images/patient/";
+                $request->file('image')->move($path, $name);
+                $formData['image'] = $path . $name;
+            }
+            $updated = $update->fill($formData)->save();
+
+            $patient_data = [
+                'name'    => $request->patient_name,
+                'email'   => $request->email,
+                'password'=> Hash::make($request->password),
+            ];
+            User::where('user_id', $id)->where('role','patient')->update($patient_data);
+
             return redirect()->route('patient.index')->with('message','Patient Updated Successfully');
-        }else{
-            return back()->with('error','Patient Updated Failed');
+
+        }catch(Throwable $e){
+            return back()->with('error', $e);
         }
     }
 
@@ -130,8 +148,9 @@ class PatientController extends Controller
      * @param  \App\Models\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patient $patient)
+    public function destroy($id)
     {
-        //
+        $delete = Patient::where('id', $id)->firstorfail()->delete();
+        return back()->with('message','Patient Successfully Deleted');
     }
 }

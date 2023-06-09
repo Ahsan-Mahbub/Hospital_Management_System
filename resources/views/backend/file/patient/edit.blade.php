@@ -58,14 +58,9 @@
 	                	<div class="col-lg-12">
 	                		<select class="form-control" name="blood_group" required>
 	                			<option value="">Select One</option>
-	                			<option value="A(+ve)" {{$patient->blood_group == 'A(+ve)' ? 'selected' : ''}}>A(+ve)</option>
-	                			<option value="A(-ve)" {{$patient->blood_group == 'A(-ve)' ? 'selected' : ''}}>A(-ve)</option>
-	                			<option value="B(+ve)" {{$patient->blood_group == 'B(+ve)' ? 'selected' : ''}}>B(+ve)</option>
-	                			<option value="A(-ve)" {{$patient->blood_group == 'B(-ve)' ? 'selected' : ''}}>B(-ve)</option>
-	                			<option value="A(+ve)" {{$patient->blood_group == 'AB(+ve)' ? 'selected' : ''}}>AB(+ve)</option>
-	                			<option value="A(-ve)" {{$patient->blood_group == 'AB(-ve)' ? 'selected' : ''}}>AB(-ve)</option>
-	                			<option value="B(+ve)" {{$patient->blood_group == 'O(+ve)' ? 'selected' : ''}}>O(+ve)</option>
-	                			<option value="A(-ve)" {{$patient->blood_group == 'O(+ve)' ? 'selected' : ''}}>O(-ve)</option>
+	                			@foreach (getAvailableBloodGroup() as $group)
+									<option value="{{ $group }}" {{ $group == $patient->blood_group ? 'selected' : '' }}>{{ $group }}</option>
+								@endforeach 
 	                		</select>
 	                    </div>
 	                </div>

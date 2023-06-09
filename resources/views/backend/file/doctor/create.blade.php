@@ -75,14 +75,9 @@
 	                	<div class="col-lg-12">
 	                		<select class="form-control" name="blood_group" required>
 	                			<option value="">Select One</option>
-	                			<option value="A(+ve)">A(+ve)</option>
-	                			<option value="A(-ve)">A(-ve)</option>
-	                			<option value="B(+ve)">B(+ve)</option>
-	                			<option value="A(-ve)">B(-ve)</option>
-	                			<option value="A(+ve)">AB(+ve)</option>
-	                			<option value="A(-ve)">AB(-ve)</option>
-	                			<option value="B(+ve)">O(+ve)</option>
-	                			<option value="A(-ve)">O(-ve)</option>
+	                			@foreach (getAvailableBloodGroup() as $group)
+									<option value="{{ $group }}">{{ $group }}</option>
+								@endforeach 
 	                		</select>
 	                    </div>
 	                </div>
