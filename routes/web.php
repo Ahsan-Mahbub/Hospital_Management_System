@@ -28,27 +28,30 @@ Auth::routes([
 /*
     * Admin Routes List   
 */  
+Route::get('/', [HomeController::class, 'index']);
 
-Route::prefix('admin')->group(function() {
-    Route::middleware(['auth', 'user-access: admin'])->group(function() {
-        Route::get('/dashboard', [HomeController::class, 'adminDashbord'])->name('admin.dashboard');
-    
-        //Profile Update Route
-        Route::post('/profile-store', [HomeController::class, 'store'])->name('profile.store');
-        Route::get('change-mode', [HomeController::class, 'changeMode'])->name('mode-change');
+    Route::middleware(['auth', 'user-access:admin'])->group(function() {
+        Route::prefix('admin')->group(function() {
+            Route::get('/dashboard', [HomeController::class, 'adminDashbord'])->name('admin.dashboard');
+        
+            //Profile Update Route
+            Route::post('/profile-store', [HomeController::class, 'store'])->name('profile.store');
+            Route::get('change-mode', [HomeController::class, 'changeMode'])->name('mode-change');
 
-        Route::group(['prefix' => 'department'], function () {
-            Route::get('/list', [DepartmentController::class, 'index'])->name('department.index');
-            Route::get('/status/{id}', [DepartmentController::class, 'status'])->name('department.status');
-            Route::post('store', [DepartmentController::class, 'store'])->name('department.store');
-            Route::get('edit/{id}', [DepartmentController::class, 'edit']);
-            Route::post('update', [DepartmentController::class, 'update'])->name('department.update');
-            Route::delete('destroy/{id}', [DepartmentController::class, 'destroy'])->name('department.destroy');
-        });
+            Route::group(['prefix' => 'department'], function () {
+                Route::get('/list', [DepartmentController::class, 'index'])->name('department.index');
+                Route::get('/status/{id}', [DepartmentController::class, 'status'])->name('department.status');
+                Route::post('store', [DepartmentController::class, 'store'])->name('department.store');
+                Route::get('edit/{id}', [DepartmentController::class, 'edit']);
+                Route::post('update', [DepartmentController::class, 'update'])->name('department.update');
+                Route::delete('destroy/{id}', [DepartmentController::class, 'destroy'])->name('department.destroy');
+            });
 
-        Route::resource('/schedule', ScheduleController::class);
-        Route::group(['prefix' => 'schedule'], function() {
-            Route::get('/status/{id}', [ScheduleController::class, 'status'])->name('schedule.status');
+            Route::resource('/schedule', ScheduleController::class);
+            Route::group(['prefix' => 'schedule'], function() {
+                Route::get('/status/{id}', [ScheduleController::class, 'status'])->name('schedule.status');
+            });
+        
         });
     });
 
@@ -74,17 +77,17 @@ Route::prefix('admin')->group(function() {
             Route::get('edit/{id}', [PatientController::class, 'edit'])->name('patient.edit');
             Route::post('update/{id}', [PatientController::class, 'update'])->name('patient.update');
             Route::delete('destroy/{id}', [PatientController::class, 'destroy'])->name('patient.destroy');
-        });
+
+            Route::group(['prefix' => 'documents'], function () {
+                Route::get('/list', [PatientDocumentsController::class, 'index'])->name('documents.index');
+                Route::get('/show/{id}', [PatientDocumentsController::class, 'show'])->name('documents.show');
+                Route::post('store', [PatientDocumentsController::class, 'store'])->name('documents.store');
+                Route::delete('destroy/{id}', [PatientDocumentsController::class, 'destroy'])->name('documents.destroy');
+            });
+        }); 
         
         
-        Route::group(['prefix' => 'patient-documents'], function () {
-            Route::get('/list', [PatientDocumentsController::class, 'index'])->name('documents.index');
-            Route::get('/show/{id}', [PatientDocumentsController::class, 'show'])->name('documents.show');
-            Route::post('store', [PatientDocumentsController::class, 'store'])->name('documents.store');
-            Route::delete('destroy/{id}', [PatientDocumentsController::class, 'destroy'])->name('documents.destroy');
-        });
     });
-});
 
 // Route::middleware(['auth'])->group(function () {
     
