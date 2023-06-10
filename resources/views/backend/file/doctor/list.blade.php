@@ -44,20 +44,23 @@
 			            <td class="text-center">
 			            	<div class="btn-group">
 				            	<form action="{{route('doctor.destroy',$doctor->id)}}" method="post" accept-charset="utf-8">
-	                            	<a href="{{route('doctor.status',$doctor->id)}}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled">
-		                                <i class="fa fa-refresh {{$doctor->status == 1 ? 'text-success' :'text-danger'}}"></i>
-		                            </a>
+									@can('admin-access')
+										<a href="{{route('doctor.status',$doctor->id)}}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled">
+											<i class="fa fa-refresh {{$doctor->status == 1 ? 'text-success' :'text-danger'}}"></i>
+										</a>
+										<a href="{{route('doctor.edit', $doctor->id)}}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled">
+											<i class="fa fa-edit"></i>
+										</a>
+										@csrf
+										@method('delete')
+										<button type="submit" class="btn btn-sm btn-secondary js-bs-tooltip-enabled delete-confirm">
+											<i class="fa fa-times"></i>
+										</button>
+									@endcan
 		                            <a href="{{route('doctor.show', $doctor->id)}}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled">
 		                                <i class="fa fa-eye"></i>
 		                            </a>
-			                		<a href="{{route('doctor.edit', $doctor->id)}}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled">
-		                                <i class="fa fa-edit"></i>
-		                            </a>
-	                                @csrf
-	                                @method('delete')
-	    	                    	<button type="submit" class="btn btn-sm btn-secondary js-bs-tooltip-enabled delete-confirm">
-		                                <i class="fa fa-times"></i>
-		                            </button>
+			                		
 		                        </form>
                             </div>
 		                </td>
