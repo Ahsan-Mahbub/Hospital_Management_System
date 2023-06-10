@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\ScheduleTime;
 use Carbon\Carbon;
-use DB;
+use DateTime;
 
 class ScheduleController extends Controller
 {
@@ -105,7 +105,7 @@ class ScheduleController extends Controller
                 $scheduleUpdate = $schedule->fill($request->all())->save();                
             }else{
                 ScheduleTime::where('schedule_id', $schedule->id)->delete();
-                
+
                 $scheduleUpdate = $schedule->fill($request->all())->save();
 
                 $start = Carbon::parse($request->input('start_time'));

@@ -30,7 +30,13 @@
 			            <td class="text-center">{{$sl++}}</td>
 			            <td class="text-center">{{$schedule->doctor->doctor_name}}</td>
 			            <td class="text-center">{{$schedule->doctor->department->department_name}}</td>
-			            <td class="text-center">{{$schedule->date}} <br> {{$schedule->available_day}}</td>
+			            <td class="text-center">
+			            	@php
+			            		$date = date('d-m-Y', strtotime($schedule->date));
+							    $day = date('l', strtotime($schedule->date));
+							@endphp
+			            	{{$date}} <br> {{$day}}
+			            </td>
 			            <td class="text-center">{{$schedule->start_time}}</td>
 			            <td class="text-center">{{$schedule->end_time}}</td>
 			            <td class="text-center">{{$schedule->per_patient_time}}</td>
