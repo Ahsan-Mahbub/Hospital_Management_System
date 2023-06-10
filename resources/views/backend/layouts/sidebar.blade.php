@@ -16,11 +16,14 @@
       <!-- Visible only in normal mode -->
       <div class="smini-hidden text-center mx-auto">
         <a class="img-link" href="/">
-          <img class="img-avatar" src="/fav.svg" alt="">
+          <img class="img-avatar" src="/fav.svg" alt="" style="width: 25%; height: auto;">
         </a>
         <ul class="list-inline mt-3 mb-0">
           <li class="list-inline-item">
             <a class="link-fx text-dual fs-sm fw-semibold text-uppercase">{{Auth::user()->name}}</a>
+          </li>
+          <li class="list-inline-item">
+            <a class="link-fx text-dual fs-sm fw-semibold text-uppercase">({{Auth::user()->role}})</a>
           </li>
           <li class="list-inline-item">
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->

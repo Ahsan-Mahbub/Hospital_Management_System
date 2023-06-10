@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
+use App\Models\ScheduleTime;
 use Carbon\Carbon;
+use DB;
 
 class ScheduleController extends Controller
 {
@@ -39,23 +41,29 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {   
-        $schedule = new Schedule();
-        $scheduleSave = $schedule->fill($request->all())->save();
+        try{
+            $schedule = new Schedule();
+            $scheduleSave = $schedule->fill($request->all())->save();
 
-        // $start = Carbon::parse($request->input('start_time'));
-        // $end = Carbon::parse($request->input('end_time'));
-        
-        // $intervals = [];
-        // while ($start < $end) {
-        //     $intervals[] = $start->format('H:i');
-        //     $start->addMinutes(30);
-        // }
-        // dd($intervals);
-        
-        if($scheduleSave){
+            $start = Carbon::parse($request->input('start_time'));
+            $end = Carbon::parse($request->input('end_time'));
+            $schedule_times = [];
+            while ($start < $end) {
+                $schedule_times[] = $start->format('H:i');
+                $start->addMinutes($request->per_patient_time);
+            }
+
+            foreach ($schedule_times as $data) {
+                $set_schedule = new ScheduleTime();
+                $set_schedule->schedule_id = $schedule->id;
+                $set_schedule->schedule_time = $data;
+                $set_schedule->save();
+            }
+
             return redirect()->route('schedule.index')->with('message','Schedule Added Successfully');
-        }else{
-            return back()->with('error','Schedule Added Failed!!');;
+
+        }catch(Throwable $e){
+            return back()->with('error', $e);
         }
     }
 
@@ -91,11 +99,33 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, Schedule $schedule)
     {
-        $scheduleUpdate = $schedule->fill($request->all())->save();
-        if($scheduleUpdate){
+        try{
+            $schedule = Schedule::where('id',$schedule->id)->first();
+            if($request->start_time == $schedule->start_time && $request->end_time == $schedule->end_time){
+                $scheduleUpdate = $schedule->fill($request->all())->save();                
+            }else{
+                ScheduleTime::where('schedule_id', $schedule->id)->delete();
+                
+                $scheduleUpdate = $schedule->fill($request->all())->save();
+
+                $start = Carbon::parse($request->input('start_time'));
+                $end = Carbon::parse($request->input('end_time'));
+                $schedule_times = [];
+                while ($start < $end) {
+                    $schedule_times[] = $start->format('H:i');
+                    $start->addMinutes($request->per_patient_time);
+                }
+
+                foreach ($schedule_times as $data) {
+                    $set_schedule = new ScheduleTime();
+                    $set_schedule->schedule_id = $schedule->id;
+                    $set_schedule->schedule_time = $data;
+                    $set_schedule->save();
+                }
+            }
             return redirect()->route('schedule.index')->with('message','Schedule Updated Successfully');
-        }else{
-            return back()->with('error','Schedule Updated Failed');
+        }catch(Throwable $e) {
+            return back()->with('error', $e);
         }
     }
 

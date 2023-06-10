@@ -16,6 +16,7 @@ class Schedule extends Model
         'start_time',
         'end_time',
         'per_patient_time',
+        'date',
     ];
 
     public function doctor(){

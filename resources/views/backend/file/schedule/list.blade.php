@@ -15,7 +15,7 @@
 	                <th class="text-center">S/L &nbsp;</th>
 	                <th class="text-center">Doctor Name &nbsp;</th>
 	                <th class="text-center">Department Name &nbsp;</th>
-	                <th class="text-center">Day &nbsp;</th>
+	                <th class="text-center">Date / Day &nbsp;</th>
 	                <th class="text-center">Start Time &nbsp;</th>
 	                <th class="text-center">End Time &nbsp;</th>
 	                <th class="text-center">Per Patient Time &nbsp;</th>
@@ -30,7 +30,7 @@
 			            <td class="text-center">{{$sl++}}</td>
 			            <td class="text-center">{{$schedule->doctor->doctor_name}}</td>
 			            <td class="text-center">{{$schedule->doctor->department->department_name}}</td>
-			            <td class="text-center">{{$schedule->available_day}}</td>
+			            <td class="text-center">{{$schedule->date}} <br> {{$schedule->available_day}}</td>
 			            <td class="text-center">{{$schedule->start_time}}</td>
 			            <td class="text-center">{{$schedule->end_time}}</td>
 			            <td class="text-center">{{$schedule->per_patient_time}}</td>
