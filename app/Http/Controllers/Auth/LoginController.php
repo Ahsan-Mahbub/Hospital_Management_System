@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 class LoginController extends Controller
 {
     /*
@@ -26,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -36,5 +38,30 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request) 
+    {
+        $credentials = $request->only('email', 'password', 'role');
+        $userRole    = $request->input('role');
+        
+        $this->validate($request, [
+            'email' => 'required|email|string',
+            'password' => 'required|string',
+            'role' => 'required|string',
+        ]);
+
+        if(auth()->attempt($credentials)){
+            $user = Auth::user();
+            
+            if($user->role === User::ADMIN && $userRole === User::ADMIN) {
+                return redirect()->route('admin.dashboard');
+            } else if($user->role === User::DOCTOR && $userRole === User::DOCTOR) {
+                return redirect()->route('doctor.dashboard');
+            }   
+        } else {
+            return redirect()->route('login')
+                ->with('error','Email-Address And Password Are Wrong.');
+        }
     }
 }

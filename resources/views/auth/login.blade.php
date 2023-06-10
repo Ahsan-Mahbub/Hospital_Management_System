@@ -67,6 +67,19 @@
                         @enderror
                         <label class="form-label" for="login-password">Password</label>
                       </div>
+                      <div class="form-floating mb-4">
+                        <select name="role" id="" class="form-control @error('role') is-invalid @enderror">
+                          <option value="" selected disabled>Select user role</option>
+                          <option value="admin">Admin</option>
+                          <option value="doctor">Doctor</option>
+                        </select>
+                        @error('role')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                        <label class="form-label" for="login-password">User Role</label>
+                      </div>
                       <div class="row justify">
                         <div class="col-sm-12 text-center push">
                           <button type="submit" class="btn btn-lg btn-alt-primary fw-medium">

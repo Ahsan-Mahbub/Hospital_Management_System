@@ -19,14 +19,27 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    public function index() {
+        return view('home');
+    }
     /**
-     * Show the application dashboard.
+     * Show the admin dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function adminDashbord()
     {
         return view('backend.layouts.dashboard');
+    }
+
+     /**
+     * Show the doctor dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function doctorDashbord()
+    {
+        return view('backend.layouts.doctor-dashboard');
     }
 
     public function store(Request $request){
