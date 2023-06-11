@@ -145,12 +145,25 @@
 	            let html = '';
 	            var count = 0;
 	            response.forEach(element => {
-	            	html += `<input type="radio" name="schedule_time_id" value="`+element.id+`" class="btn-check">
-							<label class="btn btn-outline-success" for="success-outlined">S`+ count++ +`</label>`
+	            	html += `<input type="radio" name="schedule_time_id" value="`+element.id+`" class="btn-check" id="schedule-` + count + `">
+							<label class="btn btn-outline-success" for="schedule-` + count + `">S`+ count++ +`</label>`
 	            });
 	            $("#schedule-list").html(html);
 	        }
 	    });
+	}
+
+	function selectSchedule(index) {
+		let selectedInput = $('#schedule-' + index);
+
+		// Disable input
+		selectedInput.prop('disabled', true);
+
+		// selected input checked
+		selectedInput.attr('checked', true);
+
+		// Change the background color
+		selectedInput.next('label').css('background-color', 'green');
 	}
 </script>
 @endsection
