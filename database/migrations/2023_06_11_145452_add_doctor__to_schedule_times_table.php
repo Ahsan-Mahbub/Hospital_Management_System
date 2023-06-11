@@ -23,7 +23,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function up()
     {
         Schema::table('schedule_times', function (Blueprint $table) {
             $table->foreignId('doctor_id')->nullable();
