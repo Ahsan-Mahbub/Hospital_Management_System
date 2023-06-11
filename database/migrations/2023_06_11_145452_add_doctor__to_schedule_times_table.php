@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('schedule_times', function (Blueprint $table) {
-            //
+            $table->foreignId('doctor_id')->nullable();
+            $table->date('date')->nullable();
         });
     }
 
@@ -23,11 +24,8 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function down()
     {
-        Schema::table('schedule_times', function (Blueprint $table) {
-            $table->foreignId('doctor_id')->nullable();
-            $table->date('date')->nullable();
-        });
+        Schema::dropIfExists('schedule_times');
     }
 };

@@ -14,7 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::table('appointments', function (Blueprint $table) {
-            //
+            $table->foreignId('patient_id')->nullable();
+            $table->foreignId('department_id')->nullable();
+            $table->foreignId('doctor_id')->nullable();
+            $table->date('date')->nullable();
+            $table->foreignId('schedule_time_id')->nullable();
+            $table->text('problem')->nullable();
         });
     }
 
@@ -23,15 +28,8 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function down()
     {
-        Schema::table('appointments', function (Blueprint $table) {
-            $table->foreignId('patient_id')->nullable();
-            $table->foreignId('department_id')->nullable();
-            $table->foreignId('doctor_id')->nullable();
-            $table->date('date')->nullable();
-            $table->foreignId('schedule_time_id')->nullable();
-            $table->text('problem')->nullable();
-        });
+        Schema::dropIfExists('appointments');
     }
 };
