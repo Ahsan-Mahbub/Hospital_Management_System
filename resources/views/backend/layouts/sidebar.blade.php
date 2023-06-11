@@ -110,7 +110,7 @@
                 </li>
               </ul>
             </li>
-
+            @if(Auth::user()->role === 'admin' || Auth::user()->role === 'doctor')
             <li class="nav-main-item">
               <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                 <i class="nav-main-link-icon fa fa fa-pencil-alt"></i>
@@ -118,19 +118,19 @@
               </a>
               <ul class="nav-main-submenu">
                 <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
+                  <a class="nav-main-link" href="{{route('appointment.create')}}">
                     <span class="nav-main-link-name">Add Appointment</span>
                   </a>
                 </li>
 
                 <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
+                  <a class="nav-main-link" href="{{route('appointment.index')}}">
                     <span class="nav-main-link-name">Appointment List</span>
                   </a>
                 </li>
               </ul>
             </li>
-
+            @endif
             <li class="nav-main-item">
               <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                 <i class="nav-main-link-icon fa fa-book"></i>
@@ -152,94 +152,6 @@
                 <li class="nav-main-item">
                   <a class="nav-main-link" href="#">
                     <span class="nav-main-link-name">Prescription List</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-main-item">
-              <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                <i class="nav-main-link-icon fa fa-usd"></i>
-                <span class="nav-main-link-name">Account Manager</span>
-              </a>
-              <ul class="nav-main-submenu">
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Add Account</span>
-                  </a>
-                </li>
-
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Account List</span>
-                  </a>
-                </li>
-
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Add Invoice</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Invoice List</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Add Payment</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Payment List</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Report</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Debit Report</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Credit Report</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-main-item">
-              <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                <i class="nav-main-link-icon fa fa-shield"></i>
-                <span class="nav-main-link-name">Insurance</span>
-              </a>
-              <ul class="nav-main-submenu">
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Add Insurance</span>
-                  </a>
-                </li>
-
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Insurance List</span>
-                  </a>
-                </li>
-
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Add Limit Approval</span>
-                  </a>
-                </li>
-
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="#">
-                    <span class="nav-main-link-name">Limit Approval List</span>
                   </a>
                 </li>
               </ul>

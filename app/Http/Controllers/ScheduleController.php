@@ -53,10 +53,12 @@ class ScheduleController extends Controller
                 $start->addMinutes($request->per_patient_time);
             }
 
-            foreach ($schedule_times as $data) {
+            foreach ($schedule_times as $schedule_data) {
                 $set_schedule = new ScheduleTime();
                 $set_schedule->schedule_id = $schedule->id;
-                $set_schedule->schedule_time = $data;
+                $set_schedule->doctor_id = $request->doctor_id;
+                $set_schedule->date = $request->date;
+                $set_schedule->schedule_time = $schedule_data;
                 $set_schedule->save();
             }
 
@@ -100,8 +102,8 @@ class ScheduleController extends Controller
     public function update(Request $request, Schedule $schedule)
     {
         try{
-            $schedule = Schedule::where('id',$schedule->id)->first();
-            if($request->start_time == $schedule->start_time && $request->end_time == $schedule->end_time){
+            $schedule_data = Schedule::where('id',$schedule->id)->first();
+            if($request->start_time == $schedule_data->start_time && $request->end_time == $schedule_data->end_time && $request->doctor_id == $schedule_data->doctor_id){
                 $scheduleUpdate = $schedule->fill($request->all())->save();                
             }else{
                 ScheduleTime::where('schedule_id', $schedule->id)->delete();
@@ -120,6 +122,8 @@ class ScheduleController extends Controller
                     $set_schedule = new ScheduleTime();
                     $set_schedule->schedule_id = $schedule->id;
                     $set_schedule->schedule_time = $data;
+                    $set_schedule->doctor_id = $schedule->doctor_id;
+                    $set_schedule->date = $schedule->date;
                     $set_schedule->save();
                 }
             }

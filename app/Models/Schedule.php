@@ -21,4 +21,9 @@ class Schedule extends Model
     public function doctor(){
         return $this->belongsTo(Doctor::class, 'doctor_id');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
 }
