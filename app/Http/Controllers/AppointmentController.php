@@ -72,9 +72,10 @@ class AppointmentController extends Controller
      * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(Appointment $appointment)
+    public function show($id)
     {
-        //
+        $appointment = Appointment::findOrFail($id);
+        return view('backend.file.appointment.show', compact('appointment'));
     }
 
     /**
