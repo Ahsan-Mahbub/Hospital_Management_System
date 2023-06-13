@@ -44,4 +44,8 @@ class User extends Authenticatable
 
     const ADMIN  = 'admin';
     const DOCTOR = 'doctor';
+
+    public function doctor() {
+        return $this->hasOne(Doctor::class, 'user_id', 'id');
+    }
 }
