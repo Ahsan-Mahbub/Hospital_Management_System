@@ -187,27 +187,6 @@
                 </ul>
               </li>
             @endif
-            @if(Auth::user()->role === 'admin' || Auth::user()->role === 'doctor')
-              <li class="nav-main-item">
-                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                  <i class="nav-main-link-icon fa fa fa-pencil-alt"></i>
-                  <span class="nav-main-link-name">Appointment</span>
-                </a>
-                <ul class="nav-main-submenu">
-                  <li class="nav-main-item">
-                    <a class="nav-main-link" href="{{route('appointment.create')}}">
-                      <span class="nav-main-link-name">Add Appointment</span>
-                    </a>
-                  </li>
-
-                  <li class="nav-main-item">
-                    <a class="nav-main-link" href="{{route('appointment.index')}}">
-                      <span class="nav-main-link-name">Appointment List</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            @endif
           @endif
         </ul>
       </div>

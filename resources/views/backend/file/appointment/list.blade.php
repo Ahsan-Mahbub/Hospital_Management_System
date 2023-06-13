@@ -32,6 +32,9 @@
 			            <td class="text-center" width="15%">
 			            	<div class="btn-group">
 				            	<form action="{{route('appointment.destroy',$appointment->id)}}" method="post" accept-charset="utf-8">
+				            		<a href="{{route('appointment.show', $appointment->id)}}" class="btn btn-sm btn-secondary js-bs-tooltip-enabled">
+		                                <i class="fa fa-eye"></i>
+		                            </a>
 	                                @csrf
 	                                @method('delete')
 	    	                    	<button type="submit" class="btn btn-sm btn-secondary js-bs-tooltip-enabled delete-confirm">

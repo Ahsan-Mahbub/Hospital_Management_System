@@ -1,5 +1,13 @@
 @extends('backend.layouts.app')
 @section('content')
+<style>
+	.btn-check:disabled+.btn, .btn-check[disabled]+.btn {
+	    pointer-events: none;
+	    filter: none;
+	    opacity: .65;
+	    background: #000;
+	}
+</style>
 <div class="content">
 	<div class="block block-rounded">
 		<div class="block-header block-header-default">
