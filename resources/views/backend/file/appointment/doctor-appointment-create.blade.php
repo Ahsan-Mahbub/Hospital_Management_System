@@ -1,5 +1,13 @@
 @extends('backend.layouts.app')
 @section('content')
+<style>
+	.btn-check:disabled+.btn, .btn-check[disabled]+.btn {
+	    pointer-events: none;
+	    filter: none;
+	    opacity: .65;
+	    background: #000;
+	}
+</style>
 <div class="content">
 	<div class="block block-rounded">
 		<div class="block-header block-header-default">
@@ -140,9 +148,9 @@
 	        success: function (response) {
 	        	console.log(response);
 	            let html = '';
-	            var count = 0;
+	            var count = 1;
 	            response.forEach(element => {
-	            	html += `<input type="radio" name="schedule_time_id" value="`+element.id+`" class="btn-check" id="schedule-` + count + `">
+	            	html += `<input type="radio" name="schedule_time_id" `+ (element.schedule_booked == 1 ? 'disabled' : '') + ` value="`+element.id+`" class="btn-check" id="schedule-` + count + `">
 							<label class="btn btn-outline-success" for="schedule-` + count + `">S`+ count++ +`</label>`
 	            });
 	            $("#schedule-list").html(html);
@@ -164,6 +172,3 @@
 	}
 </script>
 @endsection
-
-<!-- comment -->
-<!-- html += '<p class="pt-2 mb-0"> <i class="fa fa-calendar"></i> '+element.date.split("-").reverse().join("-")+'( '+ date.toDateString() +' )'+ '( '+element.start_time +'-'+ element.end_time +' )' + '</p><br>' -->
