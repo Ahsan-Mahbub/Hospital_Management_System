@@ -20,7 +20,12 @@ class HomeController extends Controller
     }
 
     public function index() {
-        return view('home');
+        if(Auth::user()->role === 'admin')
+        {
+            return view('backend.layouts.dashboard');
+        }elseif(Auth::user()->role === 'doctor'){
+            return view('backend.layouts.doctor-dashboard');
+        }
     }
     /**
      * Show the admin dashboard.

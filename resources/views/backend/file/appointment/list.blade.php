@@ -28,7 +28,7 @@
 			            <td class="text-center">{{$appointment->patient ? $appointment->patient->patient_name : 'N/A'}}</td>
 			            <td class="text-center">{{$appointment->department ? $appointment->department->department_name : 'N/A'}}</td>
 			            <td class="text-center">{{$appointment->doctor ? $appointment->doctor->doctor_name : 'N/A'}}</td>
-			            <td class="text-center">{{date('d-m-Y', strtotime($appointment->date))}} - {{$appointment->schedule_time ? $appointment->schedule_time->schedule_time : 'N/A'}}</td>
+			            <td class="text-center">{{date('d-m-Y', strtotime($appointment->date))}} ( {{$appointment->schedule_time ? $appointment->schedule_time->schedule_time : 'N/A'}} )</td>
 			            <td class="text-center" width="15%">
 			            	<div class="btn-group">
 				            	<form action="{{route('appointment.destroy',$appointment->id)}}" method="post" accept-charset="utf-8">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\Department;
 use App\Models\Patient;
+use App\Models\ScheduleTime;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -43,6 +44,12 @@ class AppointmentController extends Controller
         $appointment = new Appointment();
         $requested_data = $request->all();
         $save = $appointment->fill($requested_data)->save();
+
+        $schedule_booked = [
+            'schedule_booked'   => 1,
+        ];
+        ScheduleTime::where('id', $request->schedule_time_id)->update($schedule_booked);
+
         if($save){
             return redirect()->route('appointment.index')->with('message','Appointment Added Successfully');
         }else{
@@ -92,6 +99,12 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
+        $schedule = Appointment::findOrFail($id);
+        $schedule_booked = [
+            'schedule_booked'   => 0,
+        ];
+        ScheduleTime::where('id', $schedule->schedule_time_id)->update($schedule_booked);
+
         $delete = Appointment::where('id', $id)->firstorfail()->delete();
         return back()->with('message','Appointment Successfully Deleted');
     }

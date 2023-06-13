@@ -143,9 +143,9 @@
 	        success: function (response) {
 	        	console.log(response);
 	            let html = '';
-	            var count = 0;
+	            var count = 1;
 	            response.forEach(element => {
-	            	html += `<input type="radio" name="schedule_time_id" value="`+element.id+`" class="btn-check" id="schedule-` + count + `">
+	            	html += `<input type="radio" name="schedule_time_id" `+ (element.schedule_booked == 1 ? 'disabled' : '') + ` value="`+element.id+`" class="btn-check" id="schedule-` + count + `">
 							<label class="btn btn-outline-success" for="schedule-` + count + `">S`+ count++ +`</label>`
 	            });
 	            $("#schedule-list").html(html);

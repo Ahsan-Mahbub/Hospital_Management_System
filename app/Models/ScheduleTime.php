@@ -13,9 +13,16 @@ class ScheduleTime extends Model
     protected $fillable = [
         'schedule_id',
         'schedule_time',
+        'doctor_id',
+        'date',
+        'schedule_booked'
     ];
 
     public function schedule(){
         return $this->belongsTo(Schedule::class, 'schedule_id');
+    }
+
+    public function doctor(){
+        return $this->belongsTo(Doctor::class, 'doctor_id');
     }
 }
