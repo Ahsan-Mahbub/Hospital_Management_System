@@ -1,126 +1,168 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hospital Management System</title>
+  <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: url("/frontend/h2.jpg") no-repeat center center fixed;
+        background-size: cover;
+      }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .login-box {
+      width: 350px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .login-header {
+      background-color: #3f51b5;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    
+    .login-header h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+    
+    .login-form {
+      padding: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 18px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+        color: #595959;
+        font-size: 14px;
+    }
+    
+    .form-group input[type="email"],
+    .form-group input[type="text"],
+    .form-group input[type="password"],
+    .form-group select {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
 
-    <title>Hospital Management System  Login </title>
-
-    <meta name="description" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
-
-    <!-- Icons -->
-    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="/fav.svg">
-    <link rel="icon" type="image/png" sizes="192x192" href="/fav.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/fav.svg">
-    <!-- END Icons -->
-
-    <!-- Stylesheets -->
-
-    <!-- Fonts and Codebase framework -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap">
-    <link rel="stylesheet" id="css-main" href="/backend/assets/css/codebase.min.css">
-    <!-- END Stylesheets -->
-  </head>
-  <body>
-    <!-- Page Container -->
-    <div id="page-container" class="main-content-boxed">
-
-      <!-- Main Container -->
-      <main id="main-container">
-        <!-- Page Content -->
-        <div class="bg-body-dark">
-          <div class="row mx-0 justify-content-center">
-            <div class="hero-static col-lg-6 col-xl-4">
-              <div class="content content-full overflow-hidden">
-                <!-- Header -->
-                <div class="py-4 text-center">
-                  <h1 class="h3 fw-bold mt-4 mb-2">Hospital Management System</h1>
-                  <h2 class="h5 fw-medium text-muted mb-0">Please Enter Your Email & Password</h2>
-                </div>
-                <!-- END Header -->
-
-                <!-- Sign In Form -->
-
-                <form class="js-validation-signin" method="POST" action="{{ route('login') }}">
-                  @csrf
-                  <div class="block block-themed block-rounded block-fx-shadow">
-                    <div class="block-header bg-gd-dusk text-center">
-                      <h3 class="block-title">Unlock Account</h3>
-                    </div>
-                    <div class="block-content">
-                      <div class="form-floating mb-4">
-                        <input type="email" id="login-username" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter your email">
-                        @error('password')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                        @enderror
-                        <label class="form-label" for="login-username">Email</label>
-                      </div>
-                      <div class="form-floating mb-4">
-                        <input type="password" id="login-password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Enter your password">
-                        @error('password')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                        @enderror
-                        <label class="form-label" for="login-password">Password</label>
-                      </div>
-                      <div class="form-floating mb-4">
-                        <select name="role" id="" class="form-control @error('role') is-invalid @enderror">
-                          <option value="" selected disabled>Select user role</option>
-                          <option value="admin">Admin</option>
-                          <option value="doctor">Doctor</option>
-                        </select>
-                        @error('role')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                        @enderror
-                        <label class="form-label" for="login-password">User Role</label>
-                      </div>
-                      <div class="row justify">
-                        <div class="col-sm-12 text-center push">
-                          <button type="submit" class="btn btn-lg btn-alt-primary fw-medium">
-                            Sign In
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="block-content block-content-full bg-body-light text-center">
-                      <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="/">
-                        <i class="fa fa-user opacity-50 me-1"></i> Not you? Please visit our website.
-                      </a>
-                    </div>
-                  </div>
-                </form>
-                <!-- END Sign In Form -->
-              </div>
-            </div>
+    .login-bottom-links a.link {
+        display: block;
+        color: #72818e;
+        text-decoration: none;
+        text-align: center;
+    }
+    
+    .form-group input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3f51b5;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .form-group input[type="submit"]:hover {
+      background-color: #2c387e;
+    }
+    
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+    .invalid-feedback {
+      font-size: 13px;
+      color: red!important;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="login-box">
+      <div class="login-header">
+        <h2>Hospital Management System</h2>
+      </div>
+      <div class="login-form">
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+          <div class="error-message"></div>
+          <div class="form-group">
+            <label for="email">User Email</label>
+            <input type="email" name="email" id="email" required class="@error('email') is-invalid @enderror" autocomplete="off">
+            @error('email')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
           </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password"  name="password" required class="@error('passowrd') is-invalid @enderror">
+            @error('password')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="password">User Role</label>
+            <select name="role" id="" class="@error('role') is-invalid @enderror">
+              <option value="" selected disabled>Select user role</option>
+              <option value="admin">Admin</option>
+              <option value="doctor">Doctor</option>
+            </select>
+            @error('role')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Login">
+          </div>
+        </form>
+
+        <div class="login-bottom-links">
+            <a href="javascript:void(0)" class="link">
+                Forgot Your Password ?
+            </a>
         </div>
-        <!-- END Page Content -->
-      </main>
-      <!-- END Main Container -->
+      </div>
     </div>
-    <!-- END Page Container -->
-
-    <!--
-        Codebase JS
-
-        Core libraries and functionality
-        webpack is putting everything together at /backend/assets/_js/main/app.js
-    -->
-    <script src="/backend/assets/js/codebase.app.min.js"></script>
-
-    <!-- jQuery (required for Select2 + jQuery Validation plugins) -->
-    <script src="/backend/assets/js/lib/jquery.min.js"></script>
-
-    <!-- Page JS Plugins -->
-    <script src="/backend/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
-
-    <!-- Page JS Code -->
-    <script src="/backend/assets/js/pages/op_auth_signin.min.js"></script>
-  </body>
+  </div>
+</body>
 </html>
