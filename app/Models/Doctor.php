@@ -34,7 +34,18 @@ class Doctor extends Model
         return $query->where('status', 1);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    
     public function department(){
         return $this->belongsTo(Department::class, 'department_id');
     }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+    
 }

@@ -28,22 +28,21 @@
 							<div class="form-group col-md-6 pb-3">
 								<label class="col-12 pb-2">Department Name <span class="text-danger">*</span></label>
 								<div class="col-lg-12">
-									<select class="form-select" name="department_id" id="department_id" required onclick="getDoctor()">
-										<option value="">Select One</option>
-										@foreach($departments as $department)
-											<option value="{{$department->id}}">{{$department->department_name}}</option>
-										@endforeach
+									<select class="form-select" name="department_id" id="department_id" required readonly>
+										<option value="{{$department->department->id}}">{{$department->department->department_name}}</option>
 									</select>
 								</div>
 							</div>
 							<div class="form-group col-md-6 pb-3">
 								<label class="col-12 pb-2">Doctor Name <span class="text-danger">*</span></label>
 								<div class="col-lg-12">
-									<select class="form-select" name="doctor_id" id="doctor_id" required onchange="getDoctorSchedule()">
-										<option value="">Select One</option>
+									<select class="form-select" name="doctor_id" id="doctor_id" required readonly>
+										<option value="{{$department->id}}">{{$department->doctor_name}}</option>
 									</select>
 								</div>
-								<div id="schedule-info"></div>
+								<div id="schedule-info">
+									
+								</div>
 							</div>
 
 							<div class="form-group col-md-6 pb-3">

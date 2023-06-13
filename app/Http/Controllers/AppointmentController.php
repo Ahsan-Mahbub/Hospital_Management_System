@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\Department;
 use App\Models\Patient;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -26,9 +27,17 @@ class AppointmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $patients = Patient::active()->get();
+    {   
+        $userId   = auth()->user()->user_id;
+        $userRole = auth()->user()->role;
+        $patients    = Patient::active()->get();
         $departments = Department::active()->get();
+        
+        if($userRole === 'doctor') {
+            $department = Doctor::with('department')->where('id', $userId)->first();
+            return view('backend.file.appointment.doctor-appointment-create', compact('department', 'patients'));
+        }
+        
         return view('backend.file.appointment.create', compact('departments','patients'));
     }
 
