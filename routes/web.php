@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PatientDocumentsController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DataGetController;
+use App\Http\Controllers\PrescriptionController;
 
 // Auth::routes();
 Auth::routes([
@@ -100,6 +101,17 @@ Route::middleware(['auth', 'can:admin-or-doctor-access'])->group(function () {
         Route::get('/show/{id}', [AppointmentController::class, 'show'])->name('appointment.show');
         Route::post('store', [AppointmentController::class, 'store'])->name('appointment.store');
         Route::delete('destroy/{id}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
+    });
+
+    Route::group(['prefix' => 'case-study'], function () {
+        Route::get('/list', [PrescriptionController::class, 'index'])->name('prescription.index');
+        Route::get('/create', [PrescriptionController::class, 'create'])->name('prescription.create');
+        Route::get('/status/{id}', [PrescriptionController::class, 'status'])->name('prescription.status');
+        Route::get('/show/{id}', [PrescriptionController::class, 'show'])->name('prescription.show');
+        Route::post('store', [PrescriptionController::class, 'store'])->name('prescription.store');
+        Route::get('edit/{id}', [PrescriptionController::class, 'edit'])->name('prescription.edit');
+        Route::post('update/{id}', [PrescriptionController::class, 'update'])->name('prescription.update');
+        Route::delete('destroy/{id}', [PrescriptionController::class, 'destroy'])->name('prescription.destroy');
     });
 
 });

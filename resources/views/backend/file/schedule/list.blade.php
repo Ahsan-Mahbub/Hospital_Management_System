@@ -28,8 +28,8 @@
 	                @foreach($schedules as $schedule)
 		          	<tr>
 			            <td class="text-center">{{$sl++}}</td>
-			            <td class="text-center">{{$schedule->doctor->doctor_name}}</td>
-			            <td class="text-center">{{$schedule->doctor->department->department_name}}</td>
+			            <td class="text-center">{{$schedule->doctor ? $schedule->doctor->doctor_name : 'N/A'}}</td>
+			            <td class="text-center">{{$schedule->department ? $schedule->department->department_name : 'N/A'}}</td>
 			            <td class="text-center">
 			            	@php
 			            		$date = date('d-m-Y', strtotime($schedule->date));
