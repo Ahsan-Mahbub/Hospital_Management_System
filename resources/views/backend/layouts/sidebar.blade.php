@@ -169,13 +169,6 @@
                   <li class="nav-main-item">
                     <a class="nav-main-link" href="{{route('prescription.create')}}">
                       <span class="nav-main-link-name">Add Patient Case Study</span>
-                  <i class="nav-main-link-icon fas fa-bed"></i>
-                  <span class="nav-main-link-name">Bed Management</span>
-                </a>
-                <ul class="nav-main-submenu">
-                  <li class="nav-main-item">
-                    <a class="nav-main-link" href="{{route('floors.index')}}">
-                      <span class="nav-main-link-name">Floor</span>
                     </a>
                   </li>
 
@@ -184,10 +177,20 @@
                       <span class="nav-main-link-name">Patient Case Study List</span>
                     </a>
                   </li>
-
                   <li class="nav-main-item">
                     <a class="nav-main-link" href="#">
                       <span class="nav-main-link-name">Prescription List</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                  <i class="nav-main-link-icon fa fa-book"></i>
+                  <span class="nav-main-link-name">Bad Management</span>
+                </a>
+                <ul class="nav-main-submenu">
+                  <li class="nav-main-item">
                     <a class="nav-main-link" href="{{route('rooms.index')}}">
                       <span class="nav-main-link-name">Room</span>
                     </a>
