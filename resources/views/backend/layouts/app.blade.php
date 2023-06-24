@@ -13,7 +13,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/fav.svg">
     <!-- END Icons -->
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap">
+    {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap"> --}}
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" id="css-main" href="/backend/assets/css/codebase.min.css">
     <link rel="stylesheet" href="/backend/assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="/toastr.min.css">
@@ -21,6 +23,10 @@
     <link rel="stylesheet" href="/backend/assets/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css">
     <link rel="stylesheet" href="/backend/assets/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css">
     <style type="text/css">
+
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
       div.dataTables_wrapper div.dataTables_filter input {
         margin-left: 0.5em;
         display: inline-block;
@@ -33,8 +39,34 @@
       .tox-statusbar__branding{
         display: none!important;
       }
-    </style>
 
+      /* Block header */
+      .block-header {
+        padding: 8px 15px;
+        border-radius: 5px 5px 0px 0px;
+      }
+      form .form-group label {
+        padding-bottom: 5px;
+        font-weight: 600;
+      }
+      form .form-group {
+        margin-bottom: 15px;
+      }
+      .form-control:focus {
+        outline: none !important;
+        border-color: initial !important;
+        box-shadow: none !important;
+      }
+
+      /* Button css */
+      .btn-group-sm>.btn, .btn-sm {
+          border-radius: 60px;
+          padding: 5px 10px;
+          font-size: 11px;
+          line-height: 1.5;
+      }
+    </style>
+     @yield('css')
   </head>
   <body>
     <!-- Page Container -->

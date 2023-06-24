@@ -1,13 +1,13 @@
 <style>
   #sidebar {
-    background-color: #2c2e3e !important;
+    background-color: #132035 !important;
   }
   .content-side.content-side-user {
-      background-color: #2c2e3e;
+      background-color: #132035;
   }
 
   .nav-main-link {
-      color: #fff;
+      color: #b9b9b9;
       padding: 0.8rem 1.5rem;
   } 
   .nav-main-link,
@@ -166,7 +166,6 @@
               </li>
             @endif
             @if (Auth::user()->role === 'admin')
-              
               <li class="nav-main-item">
                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                   <i class="nav-main-link-icon fa fa-calendar"></i>
@@ -182,6 +181,40 @@
                   <li class="nav-main-item">
                     <a class="nav-main-link" href="{{route('schedule.index')}}">
                       <span class="nav-main-link-name">Schedule List</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                  <i class="nav-main-link-icon fas fa-bed"></i>
+                  <span class="nav-main-link-name">Bed Management</span>
+                </a>
+                <ul class="nav-main-submenu">
+                  <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('floors.index')}}">
+                      <span class="nav-main-link-name">Floor</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('rooms.index')}}">
+                      <span class="nav-main-link-name">Room</span>
+                    </a>
+                  </li>
+                  <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('wards.index')}}">
+                      <span class="nav-main-link-name">Ward</span>
+                    </a>
+                  </li>
+                  <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('bed-types.index')}}">
+                      <span class="nav-main-link-name">Bed Type</span>
+                    </a>
+                  </li>
+                  <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('beds.index')}}">
+                      <span class="nav-main-link-name">Bed</span>
                     </a>
                   </li>
                 </ul>
