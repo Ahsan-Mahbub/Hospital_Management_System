@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PatientDocumentsController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DataGetController;
+use App\Http\Controllers\FloorController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\WardController;
+use App\Http\Controllers\BedTypeController;
+use App\Http\Controllers\BedController;
+use App\Http\Controllers\Common\StatusController;
 
 // Auth::routes();
 Auth::routes([
@@ -50,8 +56,15 @@ Route::middleware(['auth', 'user-access:admin'])->group(function() {
         Route::group(['prefix' => 'schedule'], function() {
             Route::get('/status/{id}', [ScheduleController::class, 'status'])->name('schedule.status');
         });
-    
+
+        Route::resource('floors', FloorController::class);
+        Route::resource('rooms', RoomController::class);
+        Route::resource('wards', WardController::class);
+        Route::resource('bed-types', BedTypeController::class);
+        Route::resource('beds', BedController::class);
     });
+
+    Route::post('/toggle-status', [StatusController::class, 'updateStatus'])->name('toggleStatus');
 });
 
 /*
