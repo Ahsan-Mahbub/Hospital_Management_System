@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Schedule;
 use App\Models\ScheduleTime;
+use App\Models\Ward;
+use App\Models\Bed;
 
 class DataGetController extends Controller
 {
@@ -26,5 +28,17 @@ class DataGetController extends Controller
     {
         $schedule_time = ScheduleTime::where('doctor_id', $id)->where('date',$date)->get();
         return response()->json($schedule_time, 200);
+    }
+
+    public function getWard($id)
+    {
+        $ward = Ward::where('room_id', $id)->get();
+        return response()->json($ward, 200);
+    }
+
+    public function getBed($id)
+    {
+        $bad = Bed::where('ward_id', $id)->get();
+        return response()->json($bad, 200);
     }
 }

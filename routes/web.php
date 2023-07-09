@@ -17,6 +17,7 @@ use App\Http\Controllers\WardController;
 use App\Http\Controllers\BedTypeController;
 use App\Http\Controllers\BedController;
 use App\Http\Controllers\Common\StatusController;
+use App\Http\Controllers\AdmissionController;
 
 // Auth::routes();
 Auth::routes([
@@ -32,6 +33,10 @@ Auth::routes([
 Route::get('/get-doctor/{id}', [DataGetController::class, 'getDoctor']);
 Route::get('/get-doctor-schedule/{id}', [DataGetController::class, 'getDoctorSchedule']);
 Route::get('/get-doctor-date-schedule/{id}/{date}', [DataGetController::class, 'getDoctorDateSchedule']);
+
+
+Route::get('/get-ward/{id}', [DataGetController::class, 'getWard']);
+Route::get('/get-bed/{id}', [DataGetController::class, 'getBed']);
 /*
 |--------------------------------------------------------------------------
 | Admin Routes List
@@ -63,6 +68,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function() {
         Route::resource('wards', WardController::class);
         Route::resource('bed-types', BedTypeController::class);
         Route::resource('beds', BedController::class);
+
+        Route::group(['prefix' => 'admission'], function () {
+            Route::get('/list', [AdmissionController::class, 'index'])->name('admission.index');
+            Route::get('/create', [AdmissionController::class, 'create'])->name('admission.create');
+            Route::post('store', [AdmissionController::class, 'store'])->name('admission.store');
+        });
+    
     });
 
     Route::post('/toggle-status', [StatusController::class, 'updateStatus'])->name('toggleStatus');
