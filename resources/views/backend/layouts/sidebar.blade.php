@@ -137,6 +137,11 @@
                       <span class="nav-main-link-name">Patient Documents</span>
                     </a>
                   </li>
+                  <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('admission.create')}}">
+                      <span class="nav-main-link-name">Patient Admission</span>
+                    </a>
+                  </li>
                 </ul>
               </li>
             @endif
@@ -190,6 +195,11 @@
                   <span class="nav-main-link-name">Bad Management</span>
                 </a>
                 <ul class="nav-main-submenu">
+                  <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('floors.index')}}">
+                      <span class="nav-main-link-name">Floors</span>
+                    </a>
+                  </li>
                   <li class="nav-main-item">
                     <a class="nav-main-link" href="{{route('rooms.index')}}">
                       <span class="nav-main-link-name">Room</span>
