@@ -30,9 +30,9 @@ class Admission extends Model
         return $this->belongsTo(Department::class, 'department_id');
     }
 
-    public function patient(){
-        return $this->belongsTo(Patient::class, 'patient_id');
-    }
+    // public function patient(){
+    //     return $this->belongsTo(Patient::class, 'patient_id');
+    // }
 
     public function doctor(){
         return $this->belongsTo(Doctor::class, 'doctor_id');
@@ -46,8 +46,18 @@ class Admission extends Model
         return $this->belongsTo(Ward::class, 'ward_id');
     }
 
-    public function bed(){
-        return $this->belongsTo(Bed::class, 'bed_id');
+    // public function bed(){
+    //     return $this->belongsTo(Bed::class, 'bed_id');
+    // }
+
+    public function bed()
+    {
+        return $this->belongsTo(Bed::class);
+    }
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
     }
 
 }

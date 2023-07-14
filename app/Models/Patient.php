@@ -24,6 +24,11 @@ class Patient extends Model
         'status'
     ];
 
+    public function admissions()
+    {
+        return $this->hasMany(Admission::class);
+    }
+    
     public function scopeActive($query)
     {
         return $query->where('status', 1);

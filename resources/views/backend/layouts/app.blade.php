@@ -165,9 +165,26 @@
                 }
               });
           });
-      
+
+          // Bed status bed details show
+          $(document).ready(function() {
+            $('.trigger').mouseover(function() {
+              $(this).siblings('.bed_detail_popover').show();
+            });
+
+            $('.trigger').mouseout(function() {
+              $(this).siblings('.bed_detail_popover').hide();
+            });
+          });
+
+          // bed status modal hide
+          $(".ukclose").click(function() {
+            $(".bedModal").modal('hide');
+          })
     </script>
-  
+
+    
+
     @yield('script')
   </body>
 </html>

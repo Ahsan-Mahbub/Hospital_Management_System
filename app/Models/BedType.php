@@ -11,6 +11,11 @@ class BedType extends Model
 
     protected $fillable = ['name','bed_price'];
 
+    public function beds()
+    {
+        return $this->hasMany(Bed::class);
+    }
+    
     public function scopeActive($q) 
     {
         return $q->where('status', 1);

@@ -15,7 +15,12 @@ class Ward extends Model
     {
         return $this->belongsTo(Room::class);
     }
-
+    
+    public function beds()
+    {
+        return $this->hasMany(Bed::class);
+    }
+    
     public function scopeActive($q) 
     {
         return $q->where('status', 1);

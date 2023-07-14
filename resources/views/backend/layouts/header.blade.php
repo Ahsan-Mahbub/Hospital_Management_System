@@ -2,11 +2,11 @@
   .space-x-1>*+* {
     margin-left: 1.25rem!important;
   } 
-  .modal-content .block {
+  #bed_status_model .modal-content .block {
     height: 100vh;
     background: transparent;
   }
-  .modal-content .block-content {
+  #bed_status_model .modal-content .block-content {
     height: 100vh;
   }
   .modal100per {
@@ -17,16 +17,16 @@
 
   .floormain {
     padding: 10px;
-    margin-bottom: -12px;
-    background: #777;
+    background: linear-gradient(45deg, #9e9494, transparent);
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-family: sans-serif;
   }
   .floormain fieldset {
     border-radius: 8px;
     padding: 10px 10px 5px;
     margin-bottom: 10px;
-}
+  }
   .floormain legend {
     float: unset; 
     display: block;
@@ -41,69 +41,105 @@
   }
   .floormain legend h4 {
     font-size: 12px;
-    font-weight: normal;
+    font-weight: 800;
     margin: 0;
-    font-family: 'Roboto-Bold';
-}
-.floorwardbg {
-    background: #4c4b4b !important;
-    border: 1px solid #fff !important;
-    color: #fff !important;
-}
-.relative {
-    position: relative;
-}
-.bedgray, .bedred, .bedgreen, .bed-unused {
+  }
+  .floorwardbg {
+      background: #4c4b4b !important;
+      border: 1px solid #fff !important;
+      color: #fff !important;
+  }
+  .relative {
+      position: relative;
+  }
+  .bedgray, .bedred, .bedgreen, .bed-unused {
     display: block;
     margin-bottom: 18px;
-}
-.bedred i {
-    color: #fa6385;
-}
-
-.bedgray i, .bedred i, .bedgreen i, .bed-unused i {
-    font-size: 50px;
-}
-
-.bedred .bedtpmiuns6 {
-    margin-top: 6px;
-    font-family: 'Roboto-Bold';
+  }
+  .bedred i {
+      color: #fa6385;
+  }
+  
+  .bedgreen i {
+      color: #65ac14;
+  }
+  .bedred .bedtpmiuns6 {
     color: #fa6485;
+  }
+  .bedgreen .bedtpmiuns6 {
+      color: #11a009;
+  }
+  .bedgray i, .bedred i, .bedgreen i, .bed-unused i {
+      font-size: 45px;
+  }
+
+  .bedtpmiuns6 {
     overflow: hidden;
     width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-weight: 600;
-}
-fieldset.floormain a {
-    display: block;
-    overflow: hidden;
-    width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.ukclose {
-    top: 17px;
-    right: 11px;
-    -webkit-box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
-    box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
-    border: none;
-    border-radius: 100%;
-    z-index: 10;
+    margin-top: 6px;
+  }
+  
+  fieldset.floormain a {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+  }
+  .ukclose {
+      top: 17px;
+      right: 11px;
+      -webkit-box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+      box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+      border: none;
+      border-radius: 100%;
+      z-index: 10;
+      position: absolute;
+      outline: none;
+      font-size: 20px;
+      width: 30px;
+      height: 30px;
+  }
+  .bedmodal .ukclose {
+      top: 15px;
+      right: 5px;
+      background: #2195f3;
+      color: #fff;
+      font-weight: bold;
+  }
+
+  .bed_detail_popover {
     position: absolute;
-    outline: none;
-    font-size: 20px;
-    width: 30px;
-    height: 30px;
-}
-.bedmodal .ukclose {
-    top: 15px;
-    right: 5px;
-    background: #2195f3;
-    color: #fff;
-    font-weight: bold;
-}
+    top: -53%;
+    left: 100%;
+    z-index: 9999;
+    background: #fff4f4;
+    padding: 12px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 2px 0px rgb(186 181 181);
+    color: #3d3838;
+  }
+
+  .bed_detail_popover:before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: 50%;
+      left: -10px;  
+      border-style: solid;
+      border-width: 5px 0px 5px 10px;
+      border-color: transparent transparent transparent #5f5e5e;
+      transform: rotate(180deg);
+  }
 </style>
+
+@php
+  $floors = \App\Models\Floor::with('rooms.wards.beds')->get();
+@endphp
+
 <!-- Header -->
 <header id="page-header">
   <!-- Header Content -->
@@ -218,7 +254,7 @@ fieldset.floormain a {
 <!-- END Header -->
 
 {{-- Bed status modal --}}
-<div class="modal" id="bed_status_model" tabindex="-1" role="dialog" aria-labelledby="modal-large" aria-hidden="true">
+<div class="modal fade bedModal" id="bed_status_model" tabindex="-1" role="dialog" aria-labelledby="modal-large" aria-hidden="true">
   <div class="modal-dialog modal100per" role="document">
       <div class="modal-content">
         {{-- modal close button --}}
@@ -226,81 +262,62 @@ fieldset.floormain a {
 
         <div class="block shadow-none mb-0">
             <div class="block-content fs-sm">
-                <fieldset class="floormain">
-                    <legend>
-                      <h4>4th Floor</h4>
-                    </legend>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <fieldset style="background-color:#f4f4f4">
-                          <legend class="text-center floorwardbg">
-                            <h4>Non Ac</h4>
-                          </legend>
-                          <div class="row">
-                            <div class="col-md-1 col-xs-6 col-lg-1 col-sm-4">
-                              <a data-toggle="popover" class="beddetail_popover" href="#" data-original-title="" title="">
-                                <div class="relative">
-                                    <div class="bedred">
-                                        <i class="fa fa-bed"></i>
-                                        <div class="bedtpmiuns6">Jamesh Wood</div>
-                                    </div>
-                                </div>
-                                <div class="bed_detail_popover" style="display: none">
-                                    Bed No. : FF - 114<br>Patient Id : 532<br>Admission Date : 11/11/2022 06:19 AM<br>Phone : 9212542542<br>Gender : Male<br>Guardian Name : Kalvin Wood<br>Consultant : Sansa Gomez                                    
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </div>
-                    </div>
-                </fieldset>
-
+              @foreach ($floors as $floor)
                 <fieldset class="floormain">
                   <legend>
-                    <h4>4th Floor</h4>
+                    <h4>{{$floor->name}} Floor</h4>
                   </legend>
                   <div class="row">
                     <div class="col-md-12">
-                      <fieldset style="background-color:#f4f4f4">
-                        <legend class="text-center floorwardbg">
-                          <h4>Non Ac</h4>
-                        </legend>
-                        <div class="row">
-                          <div class="col-md-1 col-xs-6 col-lg-1 col-sm-4">
-                            <a data-toggle="popover" class="beddetail_popover" href="#" data-original-title="" title="">
-                              <div class="relative">
-                                  <div class="bedred">
-                                      <i class="fa fa-bed"></i>
-                                      <div class="bedtpmiuns6">Jamesh Wood</div>
-                                  </div>
-                              </div>
-                              <div class="bed_detail_popover" style="display: none">
-                                  Bed No. : FF - 114<br>Patient Id : 532<br>Admission Date : 11/11/2022 06:19 AM<br>Phone : 9212542542<br>Gender : Male<br>Guardian Name : Kalvin Wood<br>Consultant : Sansa Gomez                                    
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                      </fieldset>
+                      @foreach ($floor->rooms as $room)
+                        @foreach ($room->wards as $ward) 
+                          <fieldset style="background-color:#f4f4f4">
+                            <legend class="text-center floorwardbg">
+                              <h4>{{$ward->ward_name}}</h4>
+                            </legend>
+                            <div class="row">
+                              @foreach ($ward->beds as $bed) 
+                                <div class="col-md-1 col-xs-6 col-lg-1 col-sm-4">
+                                  {{-- Patient admission details --}}
+                                  @if($bed->admissions->isNotEmpty()) 
+                                    <a class="relative beddetail_popover" href="{{ route('patient.show', $bed->currentAdmisson->patient_id) }}">
+                                      <div class=" trigger">
+                                          <div class="{{$bed->admissions->isNotEmpty() ? 'bedgreen' : 'bedred'}}">
+                                              <i class="fa fa-bed"></i>
+                                              <div class="bedtpmiuns6">{{ $bed->admissions->isNotEmpty() ? $bed->patient_name : $bed->name }}</div>
+                                          </div>
+                                      </div>
+                                      <div class="bed_detail_popover" style="display: none">
+                                        Bed No. : {{ $bed->name }}<br>
+                                        Patient Id : {{ $bed->currentAdmisson->patient_id }}<br>
+                                        Admission Date : {{ $bed->currentAdmisson->admission_date }}<br>
+                                        Phone : {{ $bed->currentAdmisson->patient->phone }}<br>
+                                        Gender : {{ $bed->currentAdmisson->patient->sex }}<br>
+                                        Consultant : {{ $bed->currentAdmisson->doctor->doctor_name }}                                  
+                                      </div> 
+                                    </a>
+                                  @else
+                                    <a  href="#">
+                                      <div class="relative">
+                                          <div class="{{$bed->admissions->isNotEmpty() ? 'bedgreen' : 'bedred'}}">
+                                              <i class="fa fa-bed"></i>
+                                              <div class="bedtpmiuns6">{{ $bed->admissions->isNotEmpty() ? $bed->patient_name : $bed->name }}</div>
+                                          </div>
+                                      </div> 
+                                    </a>
+                                  @endif
+                                </div>
+                              @endforeach
+                            </div>
+                          </fieldset>
+                        @endforeach
+                      @endforeach
                     </div>
                   </div>
-              </fieldset>
+                </fieldset>
+              @endforeach
             </div>
         </div>
       </div>
   </div>
 </div>
-{{-- <script type="text/javascript">
-  $(document).ready(function () {
-      $('.beddetail_popover').popover({
-          placement: 'right',
-          trigger: 'hover',
-          container: 'body',
-          html: true,
-          content: function () {
-
-              return $(this).closest('div').find('.bed_detail_popover').html();
-          }
-      });
-  });
-</script> --}}
