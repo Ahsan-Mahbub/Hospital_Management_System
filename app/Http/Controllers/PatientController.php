@@ -73,7 +73,7 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        $patient = Patient::findOrFail($id);
+        $patient = Patient::with('admissions.doctor', 'admissions.bed')->findOrFail($id);
         return view('backend.file.patient.show', compact('patient'));
     }
 

@@ -282,7 +282,7 @@
                                   @if($bed->admissions->isNotEmpty()) 
                                     <a class="relative beddetail_popover" href="{{ route('patient.show', $bed->currentAdmisson->patient_id) }}">
                                       <div class=" trigger">
-                                          <div class="{{$bed->admissions->isNotEmpty() ? 'bedgreen' : 'bedred'}}">
+                                          <div class="bedred">
                                               <i class="fa fa-bed"></i>
                                               <div class="bedtpmiuns6">{{ $bed->admissions->isNotEmpty() ? $bed->patient_name : $bed->name }}</div>
                                           </div>
@@ -299,7 +299,7 @@
                                   @else
                                     <a  href="#">
                                       <div class="relative">
-                                          <div class="{{$bed->admissions->isNotEmpty() ? 'bedgreen' : 'bedred'}}">
+                                          <div class="bedgreen">
                                               <i class="fa fa-bed"></i>
                                               <div class="bedtpmiuns6">{{ $bed->admissions->isNotEmpty() ? $bed->patient_name : $bed->name }}</div>
                                           </div>

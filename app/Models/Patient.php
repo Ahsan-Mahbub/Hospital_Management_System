@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
     use HasFactory;
+    
     protected $primaryKey = "id";
     protected $table = 'patients';
     protected $fillable = [
@@ -24,9 +25,19 @@ class Patient extends Model
         'status'
     ];
 
+    public function currentAdmitted()
+    {
+        return $this->hasOne(Admission::class)->latest();
+    }
+    
     public function admissions()
     {
         return $this->hasMany(Admission::class);
+    }
+    
+    public function prescriptions()
+    {
+        return $this->hasMany(Prescription::class);
     }
     
     public function scopeActive($query)
